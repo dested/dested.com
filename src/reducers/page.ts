@@ -7,15 +7,15 @@ import toyData from '../data/toys.json';
 
 const projects = projectData;
 const resume = resumeData;
-const toys = toyData.sort(() => {
+const toys = toyData /*.sort(() => {
   return Math.random() * 100 - 50;
-});
+})*/;
 
 const initialState: PageStore = {
   projects,
   toys,
   resume,
-  showResume:  window.location.host.includes('resume'),
+  showResume: window.location.host.includes('resume'),
   selectedKeyword: null,
 };
 

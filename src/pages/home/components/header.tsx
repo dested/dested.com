@@ -66,6 +66,9 @@ export let Header: React.SFC = () => {
         <Name href={'https://dested.com'}>
           {path === '/' ? "Salvatore Aiello's Portfolio" : "Salvatore Aiello's Portfolio"}
         </Name>
+        <Link area={'love'} style={{display: 'none'}} href={'/love'}>
+          Love
+        </Link>
         <Link area={'github'} href={'https://github.com/dested'}>
           Github
         </Link>

@@ -1,5 +1,23 @@
 [
   {
+    "url": "https://quickga.me",
+    "image": "assets/project-images/quickgame.png",
+    "type": "app",
+    "title": "QuickGa.me",
+    "pitch": "A Web Based 3D Multiplayer Game Engine and Marketplace",
+    "description": "A FullStack TypeScript/React/NodeJS 3D Multiplayer game engine.",
+    "keywords": ["react native", "serverless", "nodejs", "typescript"]
+  },
+  {
+    "url": "https://cleverhealth.ai",
+    "image": "assets/project-images/clever-health.png",
+    "type": "app",
+    "title": "Clever Health",
+    "pitch": "Connect to a virtual care visit immediately!",
+    "description": "A FullStack TypeScript/React Native/NodeJS, Android and iOS app for quickly connecting with a physician.",
+    "keywords": ["react native", "serverless", "nodejs", "typescript"]
+  },
+  {
     "url": "https://doubledatesapp.com",
     "image": "assets/project-images/doubledates.png",
     "title": "DoubleDates",

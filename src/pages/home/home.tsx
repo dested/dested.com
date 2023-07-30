@@ -10,7 +10,6 @@ import {IProject, IResumeItem, IToy} from '../../models';
 import {Store} from '../../reducers';
 import {media} from '../../utils/styleUtils';
 import {Footer} from './components/footer';
-import {Github} from './components/github';
 import {Header} from './components/header';
 import {HeroDescription} from './components/heroDescription';
 import {Intro} from './components/intro';

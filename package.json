@@ -10,41 +10,41 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
-    "typescript": "~3.7.2",
-    "react-meta-tags": "~0.7.4",
-
-    "react-router": "^5.2.0",
-    "react-router-dom": "^5.2.0",
-    "react-intersection-observer": "^8.29.0",
-
-
+    "@types/react-redux": "^5.0.21",
     "@types/react-router": "^5.1.8",
     "@types/react-router-dom": "^5.1.6",
-    "@types/react-redux": "^5.0.21",
+    "glamor": "^2.20.40",
+    "glamorous": "^4.13.1",
     "prettier": "^1.17.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-intersection-observer": "^8.29.0",
+    "react-meta-tags": "~0.7.4",
+    "react-redux": "^5.1.1",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.1",
+    "redux": "^3.7.2",
     "tslint": "^5.16.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-eslint-rules": "^5.4.0",
     "tslint-plugin-prettier": "^2.0.1",
     "tslint-react": "^4.0.0",
-    "utility-types": "^1.1.0",
-    "glamor": "^2.20.40",
-    "glamorous": "^4.13.1",
-    "react-redux": "^5.1.1",
-    "redux": "^3.7.2"
+    "typescript": "~3.7.2",
+    "utility-types": "^1.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build-prod": "set \"REACT_APP_ENV=prod\" && react-scripts build",
+    "build-prod": "set \"REACT_APP_ENV=prod\" && yarn build",
     "build": "react-scripts build",
+    "postbuild": "react-snap && rimraf ./build/projects",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "reactSnap": {
   },
   "browserslist": {
     "production": [
@@ -57,5 +57,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-snap": "^1.23.0"
   }
 }
