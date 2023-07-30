@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.main-container {
+    @apply container max-w-5xl mx-auto p-4 sm:p-5;
+}
+
+.block-section {
+    @apply bg-white shadow rounded-xl;
+}
+
+.block-title {
+    @apply text-lg font-semibold mb-5;
+}
+
+.item-section {
+    @apply space-y-4 sm:space-y-0 sm:flex sm:items-start sm:space-x-4;
+}
+
+.item-header-info {
+    @apply flex space-x-1.5 items-center text-sm text-gray-400 font-medium;
+}
+
+.item-header {
+    @apply space-y-4 sm:space-y-0 sm:flex sm:justify-between;
+}
+
+/* User Block */
+
+.user-photo {
+    @apply w-20 h-20 rounded-xl border-2 border-white shadow absolute -top-10;
+}
+
+.status-badge {
+    @apply px-2 py-0.5 text-xs uppercase rounded-full text-white font-semibold absolute top-4 right-7;
+}
+
+.download-btn {
+    @apply w-full py-3 rounded-l-lg text-base font-semibold bg-purple-500 text-white transition duration-200 group-hover:bg-purple-600;
+}
+
+.download-btn-icon {
+    @apply px-5 py-3 rounded-r-lg bg-purple-600 text-white;
+}
+
+/* Skill Block */
+
+.skill-tag {
+    @apply m-1 px-4 py-1.5 rounded-lg text-sm font-medium text-purple-500 bg-purple-100;
+}
+
+/* About Me Block */
+
+.mail-link {
+    @apply flex items-center space-x-1 text-purple-500 font-medium;
+}
+
+.social-link-hover {
+    @apply transition duration-300 hover:text-purple-600;
+}
+
+.menu-link {
+    @apply inline-flex pb-5 border-b-2 border-transparent;
+}
+
+.menu-link-active {
+    @apply inline-flex pb-5 border-b-2 text-purple-500  border-purple-500;
+}
+
+.menu-link-hover {
+    @apply transition duration-300 hover:text-purple-600 hover:border-purple-600;
+}
+
+/* Experience Block */
+
+.company-logo {
+    @apply flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-xl text-white;
+}
+
+.job-item-badge {
+    @apply inline-flex px-2 py-0.5 text-xs font-medium capitalize rounded-lg text-purple-500 bg-purple-100;
+}
+
+/* Articles Block */
+
+.article-section {
+    @apply bg-white shadow rounded-xl overflow-hidden cursor-pointer transition duration-200 hover:shadow-xl;
+}
+
+.article-img {
+    @apply w-full max-h-80 overflow-hidden rounded-b-xl;
+}
+
+/* Single Article */
+
+.single-article-section {
+    @apply bg-white shadow rounded-xl overflow-hidden;
+}
+
+.single-article-img {
+    @apply w-full max-h-80 overflow-hidden;
+}
