@@ -1,0 +1,163 @@
+[
+  {
+    "url": "https://dimeadozen.ai",
+    "image": "assets/project-images/dimeadozen.png",
+    "startDate": "March 2023",
+    "endDate": "August 2023",
+    "endNote": "Extied",
+    "name": "DimeADozen.AI / Launchmates.AI",
+    "title": "Founder",
+    "description": "An LLM based business validator and launchpad for startups. We help you validate your idea, build your MVP, and launch your business.",
+    "notes": [
+      "Generated over 40,000 business reports for small business owners and agencies",
+      "Over 1,100 sales at an average of $62 per sale",
+      "Worked with influencers, growth marketers, and agencies to expand our marketing footprint in novel ways",
+      "Launched MVP in 4 days"
+    ],
+    "tech": [
+      "solid-start",
+      "typescript",
+      "tailwind",
+      "mongodb",
+      "vercel",
+      "aws"
+    ]
+  },
+  {
+    "url": "https://quickga.me",
+    "image": "assets/project-images/quickgame.png",
+    "startDate": "January 2021",
+    "endDate": "March 2023",
+    "endNote": "Hiatus",
+    "name": "QuickGa.me",
+    "title": "Founder",
+    "description": "A web based, 3d, multiplayer game engine built to teach kids engineering skills",
+    "notes": [
+      "Used by thousands of people to make their own 3d games from right in their browser or tablet",
+      "Multiplayer is handled entirely by the internal engine, works irrespective of latency or device power",
+      "Built for people without game development experience, or even programming experience",
+      "Full coding environment, as well as drag and drop ability to configure logic",
+      "Full voxel editor for models and map layout"
+    ],
+    "tech": [
+      "react",
+      "solidjs",
+      "typescript",
+      "mongodb",
+      "aws",
+      "webgl",
+      "webgpu",
+      "monaco",
+      "blockly",
+      "babylonjs"
+    ]
+  },
+
+  {
+    "url": "https://cleverhealth.ai",
+    "image": "assets/project-images/clever-health.png",
+    "startDate": "August 2018",
+    "endDate": "July 2023",
+    "endNote": "Exited",
+    "name": "Clever Health",
+    "title": "CTO / Co-Founder",
+    "description": "A full-service virtual care (telemedicine) and prescription pricing platform available to over 100,000 members",
+    "notes": [
+      "Architected and maintained multiple React Native Android/iOS app written in strict TypeScript",
+      "Architected and maintained a fully stateless RESTful API using Serverless, NodeJS, and strict TypeScript, hosted on AWS API Gateway",
+      "Worked closely with the CEO and executive team to convert business rules into real executable logic",
+      "Managed team of engineers and worked with business leaders to schedule features and releases",
+      "Integrated with several third-party APIs for things such as prescription lookup, drug pricing, video conferencing, doctor consultations, and Twilio IVR",
+      "Built from scratch with React, React-native, Typescript, MongoDB, PostgreSQL, AWS, Serverless"
+    ],
+    "tech": [
+      "react",
+      "react-native",
+      "typescript",
+      "mongodb",
+      "postgresql",
+      "aws",
+      "serverless"
+    ]
+  },
+  {
+    "url": "https://doubledatesapp.com",
+    "image": "assets/project-images/doubledates.png",
+    "startDate": "March 2019",
+    "endDate": "April 2020",
+    "endNote": "Shutdown",
+    "name": "DoubleDates",
+    "title": "Foudner",
+    "description": "A Social Event Matchmaker built specifically for couples",
+    "notes": [
+      "Designed business model from the ground up to best suit customer needs",
+      "Worked closely with potential customers to design UX journeys and personas",
+      "Architected and maintained a React Native Android/iOS app written in strict TypeScript",
+      "Architected and maintained a fully stateless RESTful API using Serverless, NodeJS, and strict TypeScript, hosted on AWS API Gateway",
+      "Designed custom modern UI/UX"
+    ],
+    "tech": [
+      "react",
+      "react-native",
+      "typescript",
+      "mongodb",
+      "aws",
+      "serverless"
+    ]
+  },
+  {
+    "url": "https://styr.com",
+    "image": "assets/project-images/styr-2.png",
+    "startDate": "October 2016",
+    "endDate": "April 2019",
+    "endNote": "",
+    "name": "Styr Labs",
+    "title": "Chief Technology Officer / Co-Founder",
+    "description": "Personal nutrition wellness app used by tens of thousands",
+    "notes": [
+      "Built the development team from a single engineer to a stable team of 10 in under 6 months",
+      "Outlined and built architecture for a brand-new backend system, database, web portal, and mobile applications, as well as payment processing and order fulfillment",
+      "Pioneered the use of TypeScript, React Native, and Serverless",
+      "Worked closely with CEO to devise and develop features that would affect our business",
+      "Procured and managed relationships with 3rd party vendors",
+      "Oversaw the creation and development of 7 mobile applications, 4 web portals, and countless 3rd party integrations, used by tens of thousands of paying customers each day",
+      "Integrated a custom hardware stack to support the seamless communication with multiple proprietary Bluetooth devices",
+      "Devised process for backend and application deploys to allow consistent and continuous deploys"
+    ],
+    "tech": [
+      "react",
+      "react-native",
+      "typescript",
+      "mongodb",
+      "aws",
+      "serverless"
+    ]
+  },
+  {
+    "url": "https://healthiestyou.com",
+    "image": "assets/project-images/healthiestyou.png",
+    "startDate": "March 2015",
+    "endDate": "October 2016",
+    "endNote": "",
+    "name": "HealthiestYou",
+    "title": "VP, Engineering",
+    "description": "Telemedicine app built for users, sold through insurance brokers with over 20,000 enrolled agents",
+    "notes": [
+      "Led a team of 6 frontend and backend developers",
+      "Oversaw transition to telephony to WebRTC-based doctor video network; resulted in 100,000+ annual membership boost and 12 million dollar annual revenue increase",
+      "Parallelized member feed processes utilizing AWS queueing and server caching system to meet the increasing demand",
+      "Rebuilt backend API layer and purpose-built MongoDB ORM into stable, structured stack; increasing junior .NET developer productivity and onboarding",
+      "Released Ionic-based Android/iOS application; utilized by 100,000+ users daily",
+      "Architected framework for internal and external use web portals; ensured integration capability with 20+ third party networks",
+      "Sold to Teledoc for $180 Million, the biggest acquisition by them at that time"
+    ],
+    "tech": [
+      "angularjs",
+      "nodejs",
+      "typescript",
+      "mongodb",
+      "aws",
+      "serverless"
+    ]
+  }
+]
