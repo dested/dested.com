@@ -87,14 +87,6 @@
     "keywords": ["javascript", "typescript", "canvas"]
   },
   {
-    "url": "https://baubly.s3.us-west-2.amazonaws.com/index.html",
-    "image": "assets/project-images/baubly.png",
-    "title": "Baubly",
-    "github": "https://github.com/dested/Baubly",
-    "description": "Test for a hexagon game engine",
-    "keywords": ["javascript", "engine", "typescript", "canvas"]
-  },
-  {
     "image": "assets/project-images/penguio.png",
     "title": "Penguio Framework",
     "github": "https://github.com/Penguio-Framework",
@@ -118,22 +110,6 @@
     "keywords": ["javascript", "typescript", "canvas", "weekend"]
   },
   {
-    "url": "https://youtu.be/m05TRVNMkHw",
-    "image": "assets/project-images/mario.png",
-    "title": "Mario AI",
-    "github": "https://github.com/dested/MarioAi",
-    "description": "My AI agent for the 2009 <a href='http://julian.togelius.com/mariocompetition2009/'>MarioAI</a> competition. Uses A* to progress through the level.",
-    "keywords": ["java", "pathfinding", "performance"]
-  },
-  {
-    "url": "projects/Triangles/index.html",
-    "image": "assets/project-images/triangles.png",
-    "title": "Triangles Puzzle Game",
-    "github": "https://github.com/dested/Triangles-",
-    "description": "A rough implementation of an interesting puzzle game concept",
-    "keywords": ["javascript", "weekend", "c#", "canvas"]
-  },
-  {
     "url": "https://dotsgame.s3-us-west-1.amazonaws.com/index.html",
     "image": "assets/project-images/dots.png",
     "title": "Dots Game",
@@ -142,35 +118,12 @@
     "keywords": ["typescript", "weekend", "canvas", "multiplayer"]
   },
   {
-    "url": "projects/polygroup/index.html",
-    "image": "assets/project-images/poly-group.png",
-    "title": "Server Clustering Algorithm",
-    "description": "An implementation of how user clustering could work for a Massive Multiplayer game",
-    "keywords": ["javascript", "performance", "canvas", "multiplayer", "weekend"]
-  },
-  {
-    "url": "projects/profiler/index.html",
-    "image": "assets/project-images/profiler.png",
-    "title": "Javascript Profiler",
-    "github": "https://github.com/dested/jsprofiler",
-    "description": "A javascript profiler that supports line by line statistical analysis. Uses Istanbul and ESPrima for code instrumentation",
-    "keywords": ["javascript", "tool", "performance", "weekend"]
-  },
-  {
     "url": "projects/snake/index.html",
     "image": "assets/project-images/snake.png",
     "title": "Snake A*",
     "github": "https://github.com/dested/SnakeAStar",
     "description": "A solver for snake using the A* path finding algorithm",
     "keywords": ["javascript", "pathfinding", "c#", "canvas", "weekend"]
-  },
-  {
-    "url": "http://aiplays.com/tetris",
-    "image": "assets/project-images/aiplaystetris.png",
-    "title": "AI Plays: TETRIS",
-    "github": "https://github.com/dested/aiplays",
-    "description": "A scripting engine that allows developers to write an AI for Tetris",
-    "keywords": ["javascript", "typescript", "tool", "weekend", "canvas"]
   },
   {
     "url": "projects/color-sorter/index.html",
@@ -187,28 +140,6 @@
     "github": "https://github.com/dested/twitter-plays-tetris",
     "description": "Community driven Tetris game played on Twitter",
     "keywords": ["multiplayer", "javascript", "typescript", "weekend"]
-  },
-  {
-    "image": "assets/project-images/webrtc-test.png",
-    "title": "Peer to Peer Test",
-    "github": "https://github.com/dested/Peer-Test",
-    "description": "A test application to determine the viability of web-rtc for large scale mostly \"serverless\" games",
-    "keywords": ["typescript", "performance", "javascript", "webrtc", "weekend", "tool"]
-  },
-  {
-    "image": "assets/project-images/multiplayer-engine.png",
-    "title": "MMO Engine",
-    "github": "https://github.com/dested/MultiplayerPathFindingEngine",
-    "description": "A test to build a horizontally scalable mmo engine for the web",
-    "keywords": ["c#", "javascript", "multiplayer"]
-  },
-  {
-    "url": "projects/bezier/index.html",
-    "image": "assets/project-images/bezier.png",
-    "title": "Cubic Bezier Curve",
-    "github": "https://gist.github.com/dested/83adfc1afc684a7ed65b86ea01259661",
-    "description": "A very simple Cubic Bezier Curve implementation in javascript",
-    "keywords": ["javascript", "canvas", "weekend"]
   },
   {
     "url": "https://github.com/Shuffle-Game/AnyCardGame",

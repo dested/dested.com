@@ -85,7 +85,7 @@
 /* Articles Block */
 
 .article-section {
-    @apply bg-white shadow rounded-xl overflow-hidden cursor-pointer transition duration-200 hover:shadow-xl;
+    @apply bg-white shadow rounded-xl overflow-hidden transition duration-200 hover:shadow-xl;
 }
 
 .article-img {

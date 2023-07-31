@@ -1,6 +1,6 @@
 import React, { ReactElement, useState } from 'react'
 import projectData from './data/projects.json'
-import resumeData from './data/resume.json'
+import blogData from './data/blog.json'
 import toyData from './data/toys.json'
 
 export function App() {
@@ -170,420 +170,132 @@ export function App() {
         </div>
 
         {selectedTab === 'resume' && (
-          <div className="p-7 block-section gap-5 flex flex-col">
-            <h2 className="block-title">Recent Experience</h2>
+          <div className="pt-3 gap-5 flex flex-col">
             {projectData.map((project, index) => (
-              <div className="item-section">
-                <div className="w-full space-y-5 border-b-2">
-                  <div className="item-header">
-                    <div className="space-y-1.5">
-                      <div className={'flex flex-row items-center gap-2'}>
-                        <a
-                          href={project.url}
-                          className="block text-2xl font-medium"
-                        >
-                          {project.name}, {project.title}
-                        </a>
-                        {project.endNote && (
-                          <div className="job-item-badge">
-                            {project.endNote}
-                          </div>
-                        )}
-                      </div>
-
-                      <div className="space-y-2">
-                        <div className="item-header-info">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-4 w-4"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
+              <div className="article-section">
+                <div className="w-full space-y-5">
+                  <div className="p-4">
+                    <div className="item-header">
+                      <div className="space-y-1.5">
+                        <div className={'flex flex-row items-center gap-2'}>
+                          <a
+                            href={project.url}
+                            className="block text-2xl font-medium"
                           >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="2"
-                              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                            />
-                          </svg>
-                          <span>
-                            {project.startDate} – {project.endDate}
-                          </span>
+                            {project.name}
+                          </a>
+                          {project.endNote && (
+                            <div className="job-item-badge">
+                              {project.endNote}
+                            </div>
+                          )}
+                        </div>
+
+                        <div className="space-y-2">
+                          <div className="item-header-info">
+                            <span className={'pr-2 text-gray-900'}>
+                              {project.title}
+                            </span>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              className="h-4 w-4"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                              />
+                            </svg>
+                            <span>
+                              {project.startDate} – {project.endDate}
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <p className="font-medium sm:mx-4 md:mx-8 text-center text-gray-600">
-                    {project.description}
-                  </p>
-                  <ul className="list-disc list-inside">
-                    {project.notes.map((note) => (
-                      <li>{note}</li>
-                    ))}
-                  </ul>
-                  <div className="my-4 italic text-right">
-                    {project.tech.join(' ')}{' '}
+                    <p className="font-medium sm:mx-4 md:mx-8 my-4 text-center text-gray-600">
+                      {project.description}
+                    </p>
+                    <ul className="list-disc list-inside">
+                      {project.notes.map((note) => (
+                        <li>{note}</li>
+                      ))}
+                    </ul>
+                    <div className="my-4 italic text-right">
+                      {project.tech.join(' ')}{' '}
+                    </div>
                   </div>
 
-                  <a
-                    href={project.url}
-                    className="block w-full pb-4 rounded-md overflow-hidden"
-                  >
-                    <img src={project.image} className={''} />
+                  <a href={project.url} className="article-img">
+                    <img src={project.image} />
                   </a>
                 </div>
               </div>
             ))}
           </div>
         )}
-        {selectedTab === 'toys' && (
-          <div className="p-7 block-section gap-5 flex flex-col">
-            <h2 className="block-title">Experience</h2>
-            {toyData.map((project) => (
-              <div className="item-section" key={project.title}>
-                <div className="company-logo">
-                  <img src={project.image} />
-                </div>
 
-                <div className="w-full space-y-5">
-                  <div className="item-header">
-                    <div className="space-y-1.5">
-                      <div className="font-medium">{project.title}</div>
-                      <div className="flex space-x-5">
-                        {/*<div className="item-header-info">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-4 w-4"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="2"
-                              d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                            />
-                          </svg>
-                          <span>Blogger</span>
-                        </div>*/}
-                        {/*<div className="item-header-info">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-4 w-4"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="2"
-                              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                            />
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="2"
-                              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                            />
-                          </svg>
-                          <span>London</span>
-                        </div>*/}
-                      </div>
-                    </div>
-                    <div className="space-y-2 sm:text-right">
-                      {/*<div className="job-item-badge">Full time</div>*/}
-                      <div className="item-header-info">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-4 w-4"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                          />
-                        </svg>
-                        <span>December 2017 – March 2018</span>
-                      </div>
-                    </div>
+        {selectedTab === 'toys' && (
+          <div className="gap-5 flex flex-col">
+            {toyData.map((project) => (
+              <div className="article-section " key={project.title}>
+                <div className="space-y-3 mb-5 p-7 pb-0">
+                  <h2 className="text-lg font-semibold">{project.title}</h2>
+                  <div className="flex space-x-5">
+                    {project.url && (
+                      <a href={project.url} className="item-header-info">
+                        Website
+                      </a>
+                    )}
+                    {project.github && (
+                      <a href={project.github} className="item-header-info">
+                        Github
+                      </a>
+                    )}
                   </div>
                   <p className="text-gray-600">{project.description}</p>
+
+                  <p>
+                    <div className="text-sm text-gray-400">
+                      {project.keywords.join(' ')}
+                    </div>
+                  </p>
+                </div>
+
+                <div className="article-img">
+                  <img src={project.image} alt={project.title} />
                 </div>
               </div>
             ))}
           </div>
         )}
-        {selectedTab === 'blog' && (
-          <div className="p-7 block-section">
-            <h2 className="block-title">Experience</h2>
-            <div className="mb-5 item-section">
-              <div
-                className="company-logo"
-                style={{ backgroundColor: '#1DA1F2' }}
-              >
-                <i className="bx bxl-twitter text-3xl"></i>
-              </div>
+        {selectedTab === 'blog' &&
+          blogData.map((post) => (
+            <a
+              href="/public/single-article.html"
+              className="article-title-hover block"
+            >
+              <article className="article-section">
+                <div className="space-y-3 mb-5 p-7 pb-0">
+                  <h2 className="text-lg font-semibold">{post.title}</h2>
 
-              <div className="w-full space-y-5">
-                <div className="item-header">
-                  <div className="space-y-1.5">
-                    <div className="font-medium">Senior Developer</div>
-                    <div className="flex space-x-5">
-                      <div className="item-header-info">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-4 w-4"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                          />
-                        </svg>
-                        <span>Twitter</span>
-                      </div>
-                      <div className="item-header-info">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-4 w-4"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                          />
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                          />
-                        </svg>
-                        <span>London</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="space-y-2 sm:text-right">
-                    <div className="job-item-badge">Full time</div>
-                    <div className="item-header-info">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                        />
-                      </svg>
-                      <span>June 2019 – Present</span>
-                    </div>
-                  </div>
+                  <p className="text-gray-600">{post.summary}</p>
+
+                  <p>
+                    <time className="text-sm text-gray-400">{post.date}</time>
+                  </p>
                 </div>
-                <p className="text-gray-600">
-                  Aut omnis voluptatem sit sequi. Voluptatem temporibus repellat
-                  voluptatem voluptatibus enim voluptas necessitatibus. Aut
-                  quasi sunt dolor. Commodi dolores saepe asperiores beatae
-                  voluptate corporis est ea voluptatem. Enim quo sed et sint
-                  aspernatur distinctio qui quam.
-                </p>
-                <div className="border-b border-gray-200"></div>
-              </div>
-            </div>
 
-            <div className="mb-5 item-section">
-              <div
-                className="company-logo"
-                style={{ backgroundColor: '#0061FF' }}
-              >
-                <i className="bx bxl-dropbox text-3xl"></i>
-              </div>
-
-              <div className="w-full space-y-5">
-                <div className="item-header">
-                  <div className="space-y-1.5">
-                    <div className="font-medium">Middle Developer</div>
-                    <div className="flex space-x-5">
-                      <div className="item-header-info">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-4 w-4"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                          />
-                        </svg>
-                        <span>Dropbox</span>
-                      </div>
-                      <div className="item-header-info">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-4 w-4"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                          />
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                          />
-                        </svg>
-                        <span>London</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="space-y-2 sm:text-right">
-                    <div className="job-item-badge">Full time</div>
-                    <div className="item-header-info">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                        />
-                      </svg>
-                      <span>April 2018 – June 2019</span>
-                    </div>
-                  </div>
+                <div className="article-img">
+                  <img src={post.image} alt="" />
                 </div>
-                <p className="text-gray-600">
-                  Aut omnis voluptatem sit sequi. Voluptatem temporibus repellat
-                  voluptatem voluptatibus enim voluptas necessitatibus. Aut
-                  quasi sunt dolor. Commodi dolores saepe asperiores beatae
-                  voluptate corporis est ea voluptatem. Enim quo sed et sint
-                  aspernatur distinctio qui quam.
-                </p>
-                <div className="border-b border-gray-200"></div>
-              </div>
-            </div>
-
-            <div className="item-section">
-              <div
-                className="company-logo"
-                style={{ backgroundColor: '#FC4F08' }}
-              >
-                <i className="bx bxl-blogger text-3xl"></i>
-              </div>
-
-              <div className="w-full space-y-5">
-                <div className="item-header">
-                  <div className="space-y-1.5">
-                    <div className="font-medium">Junior Developer</div>
-                    <div className="flex space-x-5">
-                      <div className="item-header-info">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-4 w-4"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                          />
-                        </svg>
-                        <span>Blogger</span>
-                      </div>
-                      <div className="item-header-info">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-4 w-4"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                          />
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                          />
-                        </svg>
-                        <span>London</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="space-y-2 sm:text-right">
-                    <div className="job-item-badge">Full time</div>
-                    <div className="item-header-info">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                        />
-                      </svg>
-                      <span>December 2017 – March 2018</span>
-                    </div>
-                  </div>
-                </div>
-                <p className="text-gray-600">
-                  Aut omnis voluptatem sit sequi. Voluptatem temporibus repellat
-                  voluptatem voluptatibus enim voluptas necessitatibus. Aut
-                  quasi sunt dolor. Commodi dolores saepe asperiores beatae
-                  voluptate corporis est ea voluptatem. Enim quo sed et sint
-                  aspernatur distinctio qui quam.
-                </p>
-              </div>
-            </div>
-          </div>
-        )}
+              </article>
+            </a>
+          ))}
       </div>
     </div>
   )

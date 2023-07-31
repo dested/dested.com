@@ -1,0 +1,16 @@
+[
+  {
+    "url": "https://quickgameworld.com/blog/deterministic-lockstep",
+    "image": "https://quickgameworld.com/assets/blog/2022-09-01-deterministic-lockstep-with-rollback-on-the-web/.index_images/img.jpg",
+    "title": "Deterministic Lockstep Games With Rollback For The Web",
+    "summary": "When deciding on the multiplayer structure for QuickGame, we had to find a solution that balanced the following\n\nPerformance\nEase of implementation\nDeveloper experience.In the end, we chose a solution that was incredibly painful for the first two, but produced a developer experience that is unmatched in the industry. Here is the journey of the how, and the why...",
+    "date": "July 22, 2022"
+  },
+  {
+    "url": "https://casualdeveloper.net/post/2020-12-21-advanced-typescript-type-tricks-copy/",
+    "image": "https://casualdeveloper.net/img/space.jpg",
+    "title": "Advanced TypeScript Type Tricks",
+    "summary": "After spending some time in TypeScript you may begin to crave type safety everywhere in your life. JavaScript is an inherently unsafe language and there are dragons to be found everywhere and in almost every framework...",
+    "date": "December 21, 2020"
+  }
+]
