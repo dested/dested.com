@@ -51,7 +51,7 @@ export const ApprenticeJobPosting = () => {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target
-    setFormData(prevState => ({
+    setFormData((prevState) => ({
       ...prevState,
       [name]: value
     }))
@@ -69,7 +69,14 @@ export const ApprenticeJobPosting = () => {
         <div className="max-w-6xl mx-auto py-4 px-6 flex justify-between items-center">
           <div className="flex items-center space-x-2">
             <Terminal className="h-6 w-6 text-indigo-400" />
-            <a href="https://dested.com" target="_blank" rel="noopener noreferrer" className="font-bold text-xl hover:text-indigo-400 transition">Sal Aiello</a>
+            <a
+              href="https://dested.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-bold text-xl hover:text-indigo-400 transition"
+            >
+              Sal Aiello
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -149,15 +156,30 @@ export const ApprenticeJobPosting = () => {
               matters. This is real work with real impact.
             </p>
             <div className="flex items-center mb-6 space-x-4">
-              <a href="https://dested.com" target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:text-indigo-300 transition flex items-center">
+              <a
+                href="https://dested.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-indigo-400 hover:text-indigo-300 transition flex items-center"
+              >
                 <Monitor className="h-5 w-5 mr-1.5" />
                 <span>dested.com</span>
               </a>
-              <a href="https://linkedin.com/in/dested" target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:text-indigo-300 transition flex items-center">
+              <a
+                href="https://linkedin.com/in/dested"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-indigo-400 hover:text-indigo-300 transition flex items-center"
+              >
                 <Laptop className="h-5 w-5 mr-1.5" />
                 <span>LinkedIn</span>
               </a>
-              <a href="https://twitter.com/dested" target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:text-indigo-300 transition flex items-center">
+              <a
+                href="https://twitter.com/dested"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-indigo-400 hover:text-indigo-300 transition flex items-center"
+              >
                 <Zap className="h-5 w-5 mr-1.5" />
                 <span>Twitter</span>
               </a>
@@ -187,48 +209,56 @@ export const ApprenticeJobPosting = () => {
                 </div>
                 <div className="flex items-center bg-green-900/60 px-4 py-2 rounded-lg text-green-400 text-sm font-medium self-center">
                   <Zap className="h-4 w-4 mr-2" />
-                  <span className="font-bold text-base">You Earn: $9,000/month</span>
+                  <span className="font-bold text-base">
+                    You Earn: $9,000/month
+                  </span>
                 </div>
               </div>
-              <div className="flex items-center bg-gray-900/60 px-4 py-2 rounded-lg text-gray-400 text-sm font-medium self-center mt-2">
+              <div className="flex items-center justify-center bg-gray-900/60 px-4 py-2 rounded-lg text-gray-400 text-sm font-medium mb-6">
                 <AlertCircle className="h-4 w-4 mr-2" />
                 <span>US Only · PST Time Zone Recommended</span>
               </div>
-              <div className="space-y-6 mb-6">
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
-                  <div className="text-gray-400 flex items-center mb-1 sm:mb-0">
-                    <Terminal className="h-4 w-4 mr-2" />
-                    Duration
-                  </div>
-                  <div className="font-medium text-white">3 Months (1099)</div>
-                </div>
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
-                  <div className="text-gray-400 flex items-center mb-1 sm:mb-0">
-                    <Monitor className="h-4 w-4 mr-2" />
-                    Basic Requirements
-                  </div>
-                  <div className="font-medium text-white flex flex-col">
-                    <div className="flex items-center">
-                      <span className="h-1.5 w-1.5 rounded-full bg-indigo-400 mr-2"></span>
-                      <span>3+ years experience</span>
+              <div className="grid grid-cols-1 gap-6 mb-6">
+                <div className="flex flex-col space-y-4">
+                  <div className="flex justify-between items-center">
+                    <div className="text-gray-400 flex items-center">
+                      <Terminal className="h-4 w-4 mr-2" />
+                      Duration
                     </div>
-                    <div className="flex items-center">
-                      <span className="h-1.5 w-1.5 rounded-full bg-indigo-400 mr-2"></span>
-                      <span>Your own MacBook</span>
-                    </div>
-                    <div className="flex items-center">
-                      <span className="h-1.5 w-1.5 rounded-full bg-indigo-400 mr-2"></span>
-                      <span>Thrive in chaos</span>
+                    <div className="font-medium text-white">
+                      3 Months (1099)
                     </div>
                   </div>
-                </div>
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
-                  <div className="text-gray-400 flex items-center mb-1 sm:mb-0">
-                    <Bot className="h-4 w-4 mr-2" />
-                    Tech Stack
+                  <div className="flex justify-between items-start">
+                    <div className="text-gray-400 flex items-center">
+                      <Monitor className="h-4 w-4 mr-2" />
+                      Basic Requirements
+                    </div>
+                    <div className="font-medium text-white flex flex-col items-end">
+                      <div className="flex items-center">
+                        <span className="h-1.5 w-1.5 rounded-full bg-indigo-400 mr-2"></span>
+                        <span>3+ years experience</span>
+                      </div>
+                      <div className="flex items-center">
+                        <span className="h-1.5 w-1.5 rounded-full bg-indigo-400 mr-2"></span>
+                        <span>Your own MacBook</span>
+                      </div>
+                      <div className="flex items-center">
+                        <span className="h-1.5 w-1.5 rounded-full bg-indigo-400 mr-2"></span>
+                        <span>Thrive in chaos</span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="font-medium text-white">
-                   Backend, Frontend, React, Node, TypeScript, Postgres, MongoDB, AI Tools
+                  <div className="flex justify-between items-center">
+                    <div className="text-gray-400 flex items-center">
+                      <Bot className="h-4 w-4 mr-2" />
+                      Tech Stack
+                    </div>
+                    <div className="font-medium text-white text-right">
+                      Backend, Frontend, React, Node,
+                      <br />
+                      TypeScript, Postgres, MongoDB, AI Tools
+                    </div>
                   </div>
                 </div>
               </div>
@@ -240,8 +270,7 @@ export const ApprenticeJobPosting = () => {
                       Write More Code Than Ever
                     </div>
                     <p className="text-gray-300">
-                      You will work directly with me on real products. You will 
-                      
+                      You will work directly with me on real products. You will
                     </p>
                   </div>
                 </div>
@@ -257,259 +286,251 @@ export const ApprenticeJobPosting = () => {
         </div>
 
         {/* Main content */}
-        <div id="details" className="grid gap-16 lg:grid-cols-2 mb-24">
+        <div id="details" className="mb-24">
           {/* What You'll Do */}
-          <div>
-            <h2 className="text-3xl font-bold mb-8 pb-4 border-b border-gray-800">
-              What You'll Do
-            </h2>
+          <h2 className="text-3xl font-bold mb-8 pb-4 border-b border-gray-800">
+            What You'll Do
+          </h2>
 
-            <div className="space-y-10">
-              <div>
-                <h3 className="text-xl font-medium mb-4 flex items-center text-indigo-400">
-                  <Code className="h-5 w-5 mr-2" />
-                  Code at Scale
-                </h3>
-                <p className="text-gray-300 mb-4">
-           
+          <div className="grid gap-10 lg:grid-cols-2 mb-16">
+            <div>
+              <h3 className="text-xl font-medium mb-4 flex items-center text-indigo-400">
+                <Code className="h-5 w-5 mr-2" />
+                Code at Scale
+              </h3>
+              <p className="text-gray-300 mb-4">
                 This isn't hyperbole. As my apprentice, you'll be cranking out
-                  features for actual products used by thousands. You'll ship
-                  code daily and watch real users interact with your work within
-                  days, not months. I take on too many projects because I can't
-                  say no to exciting opportunities—now I need your help
-                  delivering them.     </p>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
-                  <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
-                    <div className="flex items-center mb-2">
-                      <Star className="h-4 w-4 text-amber-500 mr-2" />
-                      <span className="text-white font-medium">
-                        AWS Cloud Architecture
-                      </span>
-                    </div>
-                    <p className="text-gray-400 text-sm">
-                      Design and deploy scalable infrastructure using Lambda, S3, DynamoDB, and more
-                    </p>
+                features for actual products used by thousands. You'll ship
+                code daily and watch real users interact with your work within
+                days, not months. I take on too many projects because I can't
+                say no to exciting opportunities—now I need your help
+                delivering them.{' '}
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
+                <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
+                  <div className="flex items-center mb-2">
+                    <Star className="h-4 w-4 text-amber-500 mr-2" />
+                    <span className="text-white font-medium">
+                      AWS Cloud Architecture
+                    </span>
                   </div>
-                  <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
-                    <div className="flex items-center mb-2">
-                      <Star className="h-4 w-4 text-amber-500 mr-2" />
-                      <span className="text-white font-medium">
-                        React Ecosystem
-                      </span>
-                    </div>
-                    <p className="text-gray-400 text-sm">
-                      Build with Next.js, React Query, Zustand, and other modern React tools
-                    </p>
+                  <p className="text-gray-400 text-sm">
+                    Design and deploy scalable infrastructure using Lambda,
+                    S3, DynamoDB, and more
+                  </p>
+                </div>
+                <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
+                  <div className="flex items-center mb-2">
+                    <Star className="h-4 w-4 text-amber-500 mr-2" />
+                    <span className="text-white font-medium">
+                      React Ecosystem
+                    </span>
                   </div>
-                  <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
-                    <div className="flex items-center mb-2">
-                      <Star className="h-4 w-4 text-amber-500 mr-2" />
-                      <span className="text-white font-medium">
-                        Node.js Backend
-                      </span>
-                    </div>
-                    <p className="text-gray-400 text-sm">
-                      Create high-performance APIs with Express, and serverless functions
-                    </p>
+                  <p className="text-gray-400 text-sm">
+                    Build with Next.js, React Query, Zustand, and other modern
+                    React tools
+                  </p>
+                </div>
+                <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
+                  <div className="flex items-center mb-2">
+                    <Star className="h-4 w-4 text-amber-500 mr-2" />
+                    <span className="text-white font-medium">
+                      Node.js Backend
+                    </span>
                   </div>
-                  <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
-                    <div className="flex items-center mb-2">
-                      <Star className="h-4 w-4 text-amber-500 mr-2" />
-                      <span className="text-white font-medium">
-                        API Design
-                      </span>
-                    </div>
-                    <p className="text-gray-400 text-sm">
-                      Craft intuitive, efficient, and secure REST and TRPC APIs
-                    </p>
+                  <p className="text-gray-400 text-sm">
+                    Create high-performance APIs with Express, and serverless
+                    functions
+                  </p>
+                </div>
+                <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
+                  <div className="flex items-center mb-2">
+                    <Star className="h-4 w-4 text-amber-500 mr-2" />
+                    <span className="text-white font-medium">API Design</span>
                   </div>
-                  <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
-                    <div className="flex items-center mb-2">
-                      <Star className="h-4 w-4 text-amber-500 mr-2" />
-                      <span className="text-white font-medium">
-                        AI Integration
-                      </span>
-                    </div>
-                    <p className="text-gray-400 text-sm">
-                      Implement LLM-powered features using OpenAI, Anthropic, and other AI platforms
-                    </p>
+                  <p className="text-gray-400 text-sm">
+                    Craft intuitive, efficient, and secure REST and TRPC APIs
+                  </p>
+                </div>
+                <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
+                  <div className="flex items-center mb-2">
+                    <Star className="h-4 w-4 text-amber-500 mr-2" />
+                    <span className="text-white font-medium">
+                      AI Integration
+                    </span>
                   </div>
-                  <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
-                    <div className="flex items-center mb-2">
-                      <Star className="h-4 w-4 text-amber-500 mr-2" />
-                      <span className="text-white font-medium">
-                        Database Design
-                      </span>
-                    </div>
-                    <p className="text-gray-400 text-sm">
-                      Model data efficiently with PostgreSQL, MongoDB, and other modern databases
-                    </p>
+                  <p className="text-gray-400 text-sm">
+                    Implement LLM-powered features using OpenAI, Anthropic,
+                    and other AI platforms
+                  </p>
+                </div>
+                <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
+                  <div className="flex items-center mb-2">
+                    <Star className="h-4 w-4 text-amber-500 mr-2" />
+                    <span className="text-white font-medium">
+                      Database Design
+                    </span>
                   </div>
+                  <p className="text-gray-400 text-sm">
+                    Model data efficiently with PostgreSQL, MongoDB, and other
+                    modern databases
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-medium mb-4 flex items-center text-indigo-400">
+                <Bot className="h-5 w-5 mr-2" />
+                Master AI-Augmented Development
+              </h3>
+              <p className="text-gray-300 mb-4">
+                Learn to use the right tools at the right time to maximize
+                your productivity. The world is a new place, and you need to
+                know how to use AI to its fullest extent.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
+                <div className="bg-gray-900/60 p-5 rounded-lg border border-gray-800">
+                  <div className="flex items-center mb-2">
+                    <Star className="h-4 w-4 text-amber-500 mr-2" />
+                    <span className="text-white font-medium">
+                      AI Prompt Engineering
+                    </span>
+                  </div>
+                  <p className="text-gray-400 text-sm">
+                    Craft precise prompts that generate high-quality,
+                    production-ready code
+                  </p>
+                </div>
+                <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
+                  <div className="flex items-center mb-2">
+                    <Star className="h-4 w-4 text-amber-500 mr-2" />
+                    <span className="text-white font-medium">
+                      AI Code Review
+                    </span>
+                  </div>
+                  <p className="text-gray-400 text-sm">
+                    Effectively evaluate and refine AI-generated solutions
+                  </p>
                 </div>
               </div>
 
-              <div>
-                <h3 className="text-xl font-medium mb-4 flex items-center text-indigo-400">
-                  <Bot className="h-5 w-5 mr-2" />
-                  Master AI-Augmented Development
-                </h3>
-                <p className="text-gray-300 mb-4">
-                  Learn to use the right tools at the right time to maximize
-                  your productivity. The world is a new place, and you need to
-                  know how to use AI to its fullest extent.
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <div className="bg-gray-900/60 p-5 rounded-lg border border-gray-800">
-                    <div className="flex items-center mb-2">
-                      <Star className="h-4 w-4 text-amber-500 mr-2" />
-                      <span className="text-white font-medium">
-                        AI Prompt Engineering
-                      </span>
-                    </div>
-                    <p className="text-gray-400 text-sm">
-                      Craft precise prompts that generate high-quality,
-                      production-ready code
-                    </p>
+              <h3 className="text-xl font-medium mb-4 flex items-center text-indigo-400">
+                <Monitor className="h-5 w-5 mr-2" />
+                Daily Working Relationship
+              </h3>
+              <p className="text-gray-300 mb-4">
+                This is an intensive, hands-on apprenticeship. Here's what to
+                expect:
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
+                  <div className="flex items-center mb-2">
+                    <Star className="h-4 w-4 text-amber-500 mr-2" />
+                    <span className="text-white font-medium">
+                      Daily Pair Programming
+                    </span>
                   </div>
-                  <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
-                    <div className="flex items-center mb-2">
-                      <Star className="h-4 w-4 text-amber-500 mr-2" />
-                      <span className="text-white font-medium">
-                        AI Code Review
-                      </span>
-                    </div>
-                    <p className="text-gray-400 text-sm">
-                      Effectively evaluate and refine AI-generated solutions
-                    </p>
-                  </div>
+                  <p className="text-gray-400 text-sm">
+                    2-3 hours of direct collaboration daily, solving real
+                    problems together
+                  </p>
                 </div>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-medium mb-4 flex items-center text-indigo-400">
-                  <Monitor className="h-5 w-5 mr-2" />
-                  Daily Working Relationship
-                </h3>
-                <p className="text-gray-300 mb-4">
-                  This is an intensive, hands-on apprenticeship. Here's what to expect:
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
-                    <div className="flex items-center mb-2">
-                      <Star className="h-4 w-4 text-amber-500 mr-2" />
-                      <span className="text-white font-medium">
-                        Daily Pair Programming
-                      </span>
-                    </div>
-                    <p className="text-gray-400 text-sm">
-                      2-3 hours of direct collaboration daily, solving real problems together
-                    </p>
+                <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
+                  <div className="flex items-center mb-2">
+                    <Star className="h-4 w-4 text-amber-500 mr-2" />
+                    <span className="text-white font-medium">
+                      Real-Time Code Reviews
+                    </span>
                   </div>
-                  <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
-                    <div className="flex items-center mb-2">
-                      <Star className="h-4 w-4 text-amber-500 mr-2" />
-                      <span className="text-white font-medium">
-                        Real-Time Code Reviews
-                      </span>
-                    </div>
-                    <p className="text-gray-400 text-sm">
-                      Immediate feedback on your code with detailed explanations and best practices
-                    </p>
-                  </div>
-                  <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
-                    <div className="flex items-center mb-2">
-                      <Star className="h-4 w-4 text-amber-500 mr-2" />
-                      <span className="text-white font-medium">
-                        Morning Standups
-                      </span>
-                    </div>
-                    <p className="text-gray-400 text-sm">
-                      Start each day aligned on priorities and unblock any challenges
-                    </p>
-                  </div>
-                  <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
-                    <div className="flex items-center mb-2">
-                      <Star className="h-4 w-4 text-amber-500 mr-2" />
-                      <span className="text-white font-medium">
-                        End-of-Day Reviews
-                      </span>
-                    </div>
-                    <p className="text-gray-400 text-sm">
-                      Reflect on learnings and plan next day's objectives
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-medium mb-4 flex items-center text-indigo-400">
-                  <Brain className="h-5 w-5 mr-2" />
-                  Structured Mentorship
-                </h3>
-                <p className="text-gray-300 mb-4">
-                  Like traditional apprenticeships, you'll benefit from:
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
-                    <div className="flex items-center mb-2">
-                      <Star className="h-4 w-4 text-amber-500 mr-2" />
-                      <span className="text-white font-medium">
-                        1:1 Weekly Reviews
-                      </span>
-                    </div>
-                    <p className="text-gray-400 text-sm">
-                      Regular feedback sessions to assess progress and adjust learning path
-                    </p>
-                  </div>
-                  <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
-                    <div className="flex items-center mb-2">
-                      <Star className="h-4 w-4 text-amber-500 mr-2" />
-                      <span className="text-white font-medium">
-                        Skill Tracking
-                      </span>
-                    </div>
-                    <p className="text-gray-400 text-sm">
-                      Clear milestones and competency benchmarks throughout the program
-                    </p>
-                  </div>
-                  <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
-                    <div className="flex items-center mb-2">
-                      <Star className="h-4 w-4 text-amber-500 mr-2" />
-                      <span className="text-white font-medium">
-                        Project Ownership
-                      </span>
-                    </div>
-                    <p className="text-gray-400 text-sm">
-                      Take full responsibility for features from design to deployment
-                    </p>
-                  </div>
-                  <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
-                    <div className="flex items-center mb-2">
-                      <Star className="h-4 w-4 text-amber-500 mr-2" />
-                      <span className="text-white font-medium">
-                        Weekly Deep Dives
-                      </span>
-                    </div>
-                    <p className="text-gray-400 text-sm">
-                      Dedicated sessions exploring advanced topics and architectural decisions
-                    </p>
-                  </div>
+                  <p className="text-gray-400 text-sm">
+                    Immediate feedback on your code with detailed explanations
+                    and best practices
+                  </p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Requirements & Why This Matters */}
-          <div>
-            <h2 className="text-3xl font-bold mb-8 pb-4 border-b border-gray-800">
-              Is This For You?
-            </h2>
+          {/* Structured Mentorship */}
+          <div className="grid gap-10 lg:grid-cols-2">
+            <div>
+              <h3 className="text-xl font-medium mb-4 flex items-center text-indigo-400">
+                <Brain className="h-5 w-5 mr-2" />
+                Structured Mentorship
+              </h3>
+              <p className="text-gray-300 mb-4">
+                Like traditional apprenticeships, you'll benefit from:
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
+                  <div className="flex items-center mb-2">
+                    <Star className="h-4 w-4 text-amber-500 mr-2" />
+                    <span className="text-white font-medium">
+                      1:1 Weekly Reviews
+                    </span>
+                  </div>
+                  <p className="text-gray-400 text-sm">
+                    Regular feedback sessions to assess progress and adjust
+                    learning path
+                  </p>
+                </div>
+                <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
+                  <div className="flex items-center mb-2">
+                    <Star className="h-4 w-4 text-amber-500 mr-2" />
+                    <span className="text-white font-medium">
+                      Skill Tracking
+                    </span>
+                  </div>
+                  <p className="text-gray-400 text-sm">
+                    Clear milestones and competency benchmarks throughout the
+                    program
+                  </p>
+                </div>
+                <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
+                  <div className="flex items-center mb-2">
+                    <Star className="h-4 w-4 text-amber-500 mr-2" />
+                    <span className="text-white font-medium">
+                      Project Ownership
+                    </span>
+                  </div>
+                  <p className="text-gray-400 text-sm">
+                    Take full responsibility for features from design to
+                    deployment
+                  </p>
+                </div>
+                <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
+                  <div className="flex items-center mb-2">
+                    <Star className="h-4 w-4 text-amber-500 mr-2" />
+                    <span className="text-white font-medium">
+                      Weekly Deep Dives
+                    </span>
+                  </div>
+                  <p className="text-gray-400 text-sm">
+                    Dedicated sessions exploring advanced topics and
+                    architectural decisions
+                  </p>
+                </div>
+              </div>
+            </div>
 
-            <div className="space-y-10">
-              <div>
+            {/* Is This For You? */}
+
+          </div>
+        </div>
+
+        <div  className="mb-24 ">
+       
+              <h2 className="text-3xl font-bold mb-8 pb-4 border-b border-gray-800">
+                Is This For You?
+              </h2>
+              <div className="mb-24 grid gap-10 lg:grid-cols-2">
+
+
+              <div >
                 <h3 className="text-xl font-medium mb-4 flex items-center text-indigo-400">
                   <Github className="h-5 w-5 mr-2" />
-                  Requirements
+                  Basic Requirements
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
                   <div className="flex items-start">
@@ -559,7 +580,27 @@ export const ApprenticeJobPosting = () => {
                     </span>
                   </div>
                 </div>
-                <div className="bg-gray-900 p-5 rounded-lg border border-gray-800">
+                
+
+              </div>
+              <div>
+              
+              <h3 className="text-xl font-medium mb-4 flex items-center text-indigo-400">
+                    <Brain className="h-5 w-5 mr-2" />
+                    About me
+                  </h3>
+                  <p className="text-gray-300 mb-4">
+                    I've built and exited multiple startups, connected with
+                    thousands of developers through running Phoenix's largest
+                    JavaScript meetups, and reached a world-class level of
+                    software engineering that most only dream of.
+                  </p>
+                  <p className="text-gray-300 mb-4">
+                    I have reached the point in my career where I can't do it all.
+                    I have a number of projects that I'm working on and I need
+                    help.
+                  </p></div> </div>
+                  <div className="bg-gray-900 p-5 rounded-lg border border-gray-800 mb-8">
                   <div className="flex items-start">
                     <AlertCircle className="h-5 w-5 text-amber-500 mt-0.5 mr-3 flex-shrink-0" />
                     <div>
@@ -567,59 +608,14 @@ export const ApprenticeJobPosting = () => {
                         This apprenticeship is not for the faint of heart.
                       </p>
                       <p className="text-gray-300">
-                        You will write code daily and ship features for real products. You will have major responsibility and impact.
+                        You will write code daily and ship features for real
+                        products. You will have major responsibility and impact.
                       </p>
                     </div>
                   </div>
                 </div>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-medium mb-4 flex items-center text-indigo-400">
-                  <Brain className="h-5 w-5 mr-2" />
-                  Why This Matters
-                </h3>
-                <p className="text-gray-300 mb-4">
-                  I've built and exited multiple startups, connected with
-                  thousands of developers through running Phoenix's largest
-                  JavaScript meetups, and reached a world-class level of
-                  software engineering that most only dream of. 
-                </p>
-                <p className="text-gray-300 mb-4">
-                  I have reached the point in my career where I can't do it all. I have a number of projects that I'm working on and I need help.
-                </p>
-                <p className="text-gray-300 mb-4">
-                  This is the era of AI-powered development, and engineers are 
-                  able to move faster than ever before. I have embraced this new reality
-                  and I'm looking for someone who can help me build products that
-                  people actually want.
-                </p>
-                <p className="text-gray-300 mb-4">
-                  Why work with me? <br/><br/>
-                  I'm offering you
-                  access to my network, my brain, and my projects—plus gainful
-                  employment and a connection/referral for life.
-                </p>
-                <div className="flex flex-wrap gap-4 mt-6">
-                  <a href="https://dested.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg text-white transition">
-                    <Monitor className="h-4 w-4 mr-2" />
-                    View My Portfolio
-                  </a>
-                  <a href="https://linkedin.com/in/dested" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg text-white transition">
-                    <Laptop className="h-4 w-4 mr-2" />
-                    LinkedIn Profile
-                  </a>
-                  <a href="https://twitter.com/dested" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg text-white transition">
-                    <Zap className="h-4 w-4 mr-2" />
-                    Follow on Twitter
-                  </a>
-                </div>
-              </div>
             </div>
-          </div>
-        </div>
 
-        {/* FAQ Section */}
         <div id="faq" className="mb-24">
           <h2 className="text-3xl font-bold mb-10 pb-4 border-b border-gray-800 flex items-center">
             <AlertCircle className="h-7 w-7 mr-3 text-indigo-400" />
@@ -632,9 +628,9 @@ export const ApprenticeJobPosting = () => {
                 Is this a real job?
               </h3>
               <p className="text-gray-300">
-                Yes. This is full-time, paid work ($9k/month, 1099)
-                building actual products for real customers. You'll be writing
-                code that ships, not doing busywork or theoretical exercises.
+                Yes. This is full-time, paid work ($9k/month, 1099) building
+                actual products for real customers. You'll be writing code that
+                ships, not doing busywork or theoretical exercises.
               </p>
             </div>
 
@@ -647,14 +643,15 @@ export const ApprenticeJobPosting = () => {
                 or hitting deadlines. We don't count hours—we ship products. But
                 I respect work-life balance and don't expect you to burn out.
               </p>
-            </div>    
-                    <div className="bg-gray-900 p-6 rounded-lg border border-gray-800">
+            </div>
+            <div className="bg-gray-900 p-6 rounded-lg border border-gray-800">
               <h3 className="text-xl font-medium mb-3 text-white">
                 How many people are you hiring?
               </h3>
               <p className="text-gray-300">
-                I'm hiring one person. This is a unique opportunity to be mentored by me 
-                and build products that are used by thousands of people.
+                I'm hiring one person. This is a unique opportunity to be
+                mentored by me and build products that are used by thousands of
+                people.
               </p>
             </div>
 
@@ -712,9 +709,10 @@ export const ApprenticeJobPosting = () => {
                 Can you provide references?
               </h3>
               <p className="text-gray-300">
-                Yes, I'm happy to connect you with past colleagues, mentees, and industry leaders 
-                who can speak to my expertise and mentorship abilities. References will be provided 
-                during the interview process.
+                Yes, I'm happy to connect you with past colleagues, mentees, and
+                industry leaders who can speak to my expertise and mentorship
+                abilities. References will be provided during the interview
+                process.
               </p>
             </div>
 
@@ -723,10 +721,12 @@ export const ApprenticeJobPosting = () => {
                 What does a typical day look like?
               </h3>
               <p className="text-gray-300">
-                We start with a morning standup to align on priorities. You'll spend 2-3 hours pair 
-                programming with me on complex problems, then work independently on assigned features 
-                with real-time support available. We end each day with a review of your code and 
-                learnings. You'll be shipping code to production within your first week.
+                We start with a morning standup to align on priorities. You'll
+                spend 2-3 hours pair programming with me on complex problems,
+                then work independently on assigned features with real-time
+                support available. We end each day with a review of your code
+                and learnings. You'll be shipping code to production within your
+                first week.
               </p>
             </div>
           </div>
@@ -926,7 +926,8 @@ export const ApprenticeJobPosting = () => {
                     htmlFor="workStyle"
                     className="block text-sm font-medium text-gray-300 mb-1"
                   >
-                    How do you feel about intensive pair programming and daily collaboration?
+                    How do you feel about intensive pair programming and daily
+                    collaboration?
                   </label>
                   <textarea
                     id="workStyle"
@@ -960,16 +961,38 @@ export const ApprenticeJobPosting = () => {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-2 mb-4 md:mb-0">
               <Terminal className="h-5 w-5 text-indigo-400" />
-              <a href="https://dested.com" target="_blank" rel="noopener noreferrer" className="font-bold hover:text-indigo-400 transition">Sal Aiello</a>
+              <a
+                href="https://dested.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold hover:text-indigo-400 transition"
+              >
+                Sal Aiello
+              </a>
             </div>
             <div className="flex items-center space-x-4 mb-4 md:mb-0">
-              <a href="https://dested.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-indigo-400 transition">
+              <a
+                href="https://dested.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-indigo-400 transition"
+              >
                 <Monitor className="h-5 w-5" />
               </a>
-              <a href="https://linkedin.com/in/dested" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-indigo-400 transition">
+              <a
+                href="https://linkedin.com/in/dested"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-indigo-400 transition"
+              >
                 <Laptop className="h-5 w-5" />
               </a>
-              <a href="https://twitter.com/dested" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-indigo-400 transition">
+              <a
+                href="https://twitter.com/dested"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-indigo-400 transition"
+              >
                 <Zap className="h-5 w-5" />
               </a>
             </div>
