@@ -27,7 +27,9 @@ export const ApprenticeJobPosting = () => {
     bestProject: '',
     chaosLevel: '5',
     aiExperience: '',
-    vibeQuestion: ''
+    vibeQuestion: '',
+    timezone: '',
+    workStyle: ''
   })
 
   const [submitted, setSubmitted] = useState(false)
@@ -67,7 +69,7 @@ export const ApprenticeJobPosting = () => {
         <div className="max-w-6xl mx-auto py-4 px-6 flex justify-between items-center">
           <div className="flex items-center space-x-2">
             <Terminal className="h-6 w-6 text-indigo-400" />
-            <span className="font-bold text-xl">Sal Aiello</span>
+            <a href="https://dested.com" target="_blank" rel="noopener noreferrer" className="font-bold text-xl hover:text-indigo-400 transition">Sal Aiello</a>
           </div>
 
           {/* Mobile menu button */}
@@ -146,6 +148,20 @@ export const ApprenticeJobPosting = () => {
               looking for a protégé who's ready to level up and build shit that
               matters. This is real work with real impact.
             </p>
+            <div className="flex items-center mb-6 space-x-4">
+              <a href="https://dested.com" target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:text-indigo-300 transition flex items-center">
+                <Monitor className="h-5 w-5 mr-1.5" />
+                <span>dested.com</span>
+              </a>
+              <a href="https://linkedin.com/in/dested" target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:text-indigo-300 transition flex items-center">
+                <Laptop className="h-5 w-5 mr-1.5" />
+                <span>LinkedIn</span>
+              </a>
+              <a href="https://twitter.com/dested" target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:text-indigo-300 transition flex items-center">
+                <Zap className="h-5 w-5 mr-1.5" />
+                <span>Twitter</span>
+              </a>
+            </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="#apply"
@@ -173,6 +189,10 @@ export const ApprenticeJobPosting = () => {
                   <Zap className="h-4 w-4 mr-2" />
                   <span className="font-bold text-base">You Earn: $9,000/month</span>
                 </div>
+              </div>
+              <div className="flex items-center bg-gray-900/60 px-4 py-2 rounded-lg text-gray-400 text-sm font-medium self-center mt-2">
+                <AlertCircle className="h-4 w-4 mr-2" />
+                <span>US Only · PST Time Zone Recommended</span>
               </div>
               <div className="space-y-6 mb-6">
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
@@ -364,6 +384,118 @@ export const ApprenticeJobPosting = () => {
                   </div>
                 </div>
               </div>
+
+              <div>
+                <h3 className="text-xl font-medium mb-4 flex items-center text-indigo-400">
+                  <Monitor className="h-5 w-5 mr-2" />
+                  Daily Working Relationship
+                </h3>
+                <p className="text-gray-300 mb-4">
+                  This is an intensive, hands-on apprenticeship. Here's what to expect:
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
+                    <div className="flex items-center mb-2">
+                      <Star className="h-4 w-4 text-amber-500 mr-2" />
+                      <span className="text-white font-medium">
+                        Daily Pair Programming
+                      </span>
+                    </div>
+                    <p className="text-gray-400 text-sm">
+                      2-3 hours of direct collaboration daily, solving real problems together
+                    </p>
+                  </div>
+                  <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
+                    <div className="flex items-center mb-2">
+                      <Star className="h-4 w-4 text-amber-500 mr-2" />
+                      <span className="text-white font-medium">
+                        Real-Time Code Reviews
+                      </span>
+                    </div>
+                    <p className="text-gray-400 text-sm">
+                      Immediate feedback on your code with detailed explanations and best practices
+                    </p>
+                  </div>
+                  <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
+                    <div className="flex items-center mb-2">
+                      <Star className="h-4 w-4 text-amber-500 mr-2" />
+                      <span className="text-white font-medium">
+                        Morning Standups
+                      </span>
+                    </div>
+                    <p className="text-gray-400 text-sm">
+                      Start each day aligned on priorities and unblock any challenges
+                    </p>
+                  </div>
+                  <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
+                    <div className="flex items-center mb-2">
+                      <Star className="h-4 w-4 text-amber-500 mr-2" />
+                      <span className="text-white font-medium">
+                        End-of-Day Reviews
+                      </span>
+                    </div>
+                    <p className="text-gray-400 text-sm">
+                      Reflect on learnings and plan next day's objectives
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-medium mb-4 flex items-center text-indigo-400">
+                  <Brain className="h-5 w-5 mr-2" />
+                  Structured Mentorship
+                </h3>
+                <p className="text-gray-300 mb-4">
+                  Like traditional apprenticeships, you'll benefit from:
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
+                    <div className="flex items-center mb-2">
+                      <Star className="h-4 w-4 text-amber-500 mr-2" />
+                      <span className="text-white font-medium">
+                        1:1 Weekly Reviews
+                      </span>
+                    </div>
+                    <p className="text-gray-400 text-sm">
+                      Regular feedback sessions to assess progress and adjust learning path
+                    </p>
+                  </div>
+                  <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
+                    <div className="flex items-center mb-2">
+                      <Star className="h-4 w-4 text-amber-500 mr-2" />
+                      <span className="text-white font-medium">
+                        Skill Tracking
+                      </span>
+                    </div>
+                    <p className="text-gray-400 text-sm">
+                      Clear milestones and competency benchmarks throughout the program
+                    </p>
+                  </div>
+                  <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
+                    <div className="flex items-center mb-2">
+                      <Star className="h-4 w-4 text-amber-500 mr-2" />
+                      <span className="text-white font-medium">
+                        Project Ownership
+                      </span>
+                    </div>
+                    <p className="text-gray-400 text-sm">
+                      Take full responsibility for features from design to deployment
+                    </p>
+                  </div>
+                  <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
+                    <div className="flex items-center mb-2">
+                      <Star className="h-4 w-4 text-amber-500 mr-2" />
+                      <span className="text-white font-medium">
+                        Weekly Deep Dives
+                      </span>
+                    </div>
+                    <p className="text-gray-400 text-sm">
+                      Dedicated sessions exploring advanced topics and architectural decisions
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -454,21 +586,34 @@ export const ApprenticeJobPosting = () => {
                   software engineering that most only dream of. 
                 </p>
                 <p className="text-gray-300 mb-4">
-                I have reached the point in my career where I can't do it all. I have a number of projects that I'm working on and I need help.
+                  I have reached the point in my career where I can't do it all. I have a number of projects that I'm working on and I need help.
                 </p>
                 <p className="text-gray-300 mb-4">
-
                   This is the era of AI-powered development, and engineers are 
                   able to move faster than ever before. I have embraced this new reality
                   and I'm looking for someone who can help me build products that
                   people actually want.
                 </p>
-                <p className="text-gray-300">
+                <p className="text-gray-300 mb-4">
                   Why work with me? <br/><br/>
                   I'm offering you
                   access to my network, my brain, and my projects—plus gainful
                   employment and a connection/referral for life.
                 </p>
+                <div className="flex flex-wrap gap-4 mt-6">
+                  <a href="https://dested.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg text-white transition">
+                    <Monitor className="h-4 w-4 mr-2" />
+                    View My Portfolio
+                  </a>
+                  <a href="https://linkedin.com/in/dested" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg text-white transition">
+                    <Laptop className="h-4 w-4 mr-2" />
+                    LinkedIn Profile
+                  </a>
+                  <a href="https://twitter.com/dested" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg text-white transition">
+                    <Zap className="h-4 w-4 mr-2" />
+                    Follow on Twitter
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -559,6 +704,29 @@ export const ApprenticeJobPosting = () => {
                 great opportunities. I need someone who can match my energy and
                 help me deliver on these commitments while maintaining the
                 quality standards my clients and users expect.
+              </p>
+            </div>
+
+            <div className="bg-gray-900 p-6 rounded-lg border border-gray-800">
+              <h3 className="text-xl font-medium mb-3 text-white">
+                Can you provide references?
+              </h3>
+              <p className="text-gray-300">
+                Yes, I'm happy to connect you with past colleagues, mentees, and industry leaders 
+                who can speak to my expertise and mentorship abilities. References will be provided 
+                during the interview process.
+              </p>
+            </div>
+
+            <div className="bg-gray-900 p-6 rounded-lg border border-gray-800">
+              <h3 className="text-xl font-medium mb-3 text-white">
+                What does a typical day look like?
+              </h3>
+              <p className="text-gray-300">
+                We start with a morning standup to align on priorities. You'll spend 2-3 hours pair 
+                programming with me on complex problems, then work independently on assigned features 
+                with real-time support available. We end each day with a review of your code and 
+                learnings. You'll be shipping code to production within your first week.
               </p>
             </div>
           </div>
@@ -735,6 +903,42 @@ export const ApprenticeJobPosting = () => {
                   ></textarea>
                 </div>
 
+                <div>
+                  <label
+                    htmlFor="timezone"
+                    className="block text-sm font-medium text-gray-300 mb-1"
+                  >
+                    What timezone are you in? (PST Recommended)
+                  </label>
+                  <input
+                    type="text"
+                    id="timezone"
+                    name="timezone"
+                    required
+                    value={formData.timezone}
+                    onChange={handleChange}
+                    className="w-full bg-black/40 rounded-lg border border-gray-700 px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="workStyle"
+                    className="block text-sm font-medium text-gray-300 mb-1"
+                  >
+                    How do you feel about intensive pair programming and daily collaboration?
+                  </label>
+                  <textarea
+                    id="workStyle"
+                    name="workStyle"
+                    rows={3}
+                    required
+                    value={formData.workStyle}
+                    onChange={handleChange}
+                    placeholder="Tell me about your experience with pair programming and your preferred working style..."
+                    className="w-full bg-black/40 rounded-lg border border-gray-700 px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  ></textarea>
+                </div>
 
                 <div className="pt-6">
                   <button
@@ -756,7 +960,18 @@ export const ApprenticeJobPosting = () => {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-2 mb-4 md:mb-0">
               <Terminal className="h-5 w-5 text-indigo-400" />
-              <span className="font-bold">Sal Aiello</span>
+              <a href="https://dested.com" target="_blank" rel="noopener noreferrer" className="font-bold hover:text-indigo-400 transition">Sal Aiello</a>
+            </div>
+            <div className="flex items-center space-x-4 mb-4 md:mb-0">
+              <a href="https://dested.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-indigo-400 transition">
+                <Monitor className="h-5 w-5" />
+              </a>
+              <a href="https://linkedin.com/in/dested" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-indigo-400 transition">
+                <Laptop className="h-5 w-5" />
+              </a>
+              <a href="https://twitter.com/dested" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-indigo-400 transition">
+                <Zap className="h-5 w-5" />
+              </a>
             </div>
             <div className="text-sm text-gray-500">
               © {new Date().getFullYear()} · Founder, Fractional CTO · Phoenix,
