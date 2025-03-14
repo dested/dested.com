@@ -14,7 +14,7 @@ export function App() {
     { name: 'blog', label: 'Blog' }
   ] as const
   return (
-    <div className="grid gap-5 lg:grid-cols-3">
+    <div className="grid gap-5 lg:grid-cols-3 main-container">
       <div className="space-y-5">
         <div className="shadow rounded-xl overflow-hidden">
           <div
@@ -24,15 +24,29 @@ export function App() {
           <div className="pt-14 p-7 bg-white relative">
             {/*<span className="status-badge bg-gray-400">Busy</span>*/}
             <a href="/">
-              <img src="/assets/sal.jpg" alt="Avatar" className="user-photo" />
+              <img
+                src="/assets/sal-circle.jpg"
+                alt="Avatar"
+                className="user-photo"
+              />
             </a>
             <div className="text-lg font-semibold mb-1.5">Salvatore Aiello</div>
             <div className="text-sm text-gray-400 mb-7">
               Founder, Fractional CTO
             </div>
             <div className="flex group">
-              <button className="download-btn">Download CV</button>
-              <button className="download-btn-icon">
+              <a
+                href={'./assets/Salvatore Aiello Resume 2023.pdf'}
+                download
+                className="text-center block download-btn"
+              >
+                Download CV
+              </a>
+              <a
+                href={'./assets/Salvatore Aiello Resume 2023.pdf'}
+                download
+                className="block download-btn-icon"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"
@@ -47,7 +61,7 @@ export function App() {
                     d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
                   />
                 </svg>
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -81,7 +95,9 @@ export function App() {
           <div className="-m-2 flex flex-wrap">
             {[...new Set(flattenArray(projectData.map((e) => e.tech)))].map(
               (skill) => (
-                <span className="skill-tag">{skill}</span>
+                <span key={skill} className="skill-tag">
+                  {skill}
+                </span>
               )
             )}
           </div>
@@ -172,7 +188,7 @@ export function App() {
         {selectedTab === 'resume' && (
           <div className="pt-3 gap-5 flex flex-col">
             {projectData.map((project, index) => (
-              <div className="article-section">
+              <div key={project.url} className="article-section">
                 <div className="w-full space-y-5">
                   <div className="p-4">
                     <div className="item-header">
@@ -217,12 +233,20 @@ export function App() {
                         </div>
                       </div>
                     </div>
-                    <p className="font-medium sm:mx-4 md:mx-8 my-4 text-center text-gray-600">
-                      {project.description}
-                    </p>
-                    <ul className="list-disc list-inside">
+                    <div className="flex items-center justify-center">
+                      <div
+                        className={
+                          'font-medium sm:mx-4 w-2/3  md:mx-8 my-6 flex text-center text-gray-600'
+                        }
+                      >
+                        {project.description}
+                      </div>
+                    </div>
+                    <ul className="list-disc pl-4">
                       {project.notes.map((note) => (
-                        <li>{note}</li>
+                        <li className={'pl-4'} key={note}>
+                          {note}
+                        </li>
                       ))}
                     </ul>
                     <div className="my-4 italic text-right">
@@ -257,7 +281,10 @@ export function App() {
                       </a>
                     )}
                   </div>
-                  <p className="text-gray-600">{project.description}</p>
+                  <p
+                    className="text-gray-600"
+                    dangerouslySetInnerHTML={{ __html: project.description }}
+                  ></p>
 
                   <p>
                     <div className="text-sm text-gray-400">
@@ -276,7 +303,8 @@ export function App() {
         {selectedTab === 'blog' &&
           blogData.map((post) => (
             <a
-              href="/public/single-article.html"
+              key={post.title}
+              href={post.url}
               className="article-title-hover block"
             >
               <article className="article-section">
