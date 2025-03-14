@@ -143,7 +143,7 @@ export const ApprenticeJobPosting = () => {
         <div className="flex flex-col lg:flex-row items-center gap-12 mb-24">
           <div className="w-full lg:w-1/2">
             <div className="inline-block px-4 py-1.5 rounded-full bg-indigo-900/50 text-indigo-400 font-medium text-sm mb-6">
-              Limited Opportunity — 3 Months Only
+              Hiring Now
             </div>
             <h1 className="text-5xl font-bold leading-tight mb-6">
               Become My Coding{' '}
@@ -164,6 +164,15 @@ export const ApprenticeJobPosting = () => {
               >
                 <Monitor className="h-5 w-5 mr-1.5" />
                 <span>dested.com</span>
+              </a>
+              <a
+                href="https://github.com/dested"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-indigo-400 hover:text-indigo-300 transition flex items-center"
+              >
+                <Github className="h-5 w-5 mr-1.5" />
+                <span>GitHub</span>
               </a>
               <a
                 href="https://linkedin.com/in/dested"
@@ -975,25 +984,37 @@ export const ApprenticeJobPosting = () => {
                 href="https://dested.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-indigo-400 transition"
+                className="text-gray-300 hover:text-indigo-400 transition flex items-center"
               >
-                <Monitor className="h-5 w-5" />
+                <Monitor className="h-5 w-5 mr-2" />
+                <span>Portfolio</span>
+              </a>
+              <a
+                href="https://github.com/dested"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-indigo-400 transition flex items-center"
+              >
+                <Github className="h-5 w-5 mr-2" />
+                <span>GitHub</span>
               </a>
               <a
                 href="https://linkedin.com/in/dested"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-indigo-400 transition"
+                className="text-gray-300 hover:text-indigo-400 transition flex items-center"
               >
-                <Laptop className="h-5 w-5" />
+                <Laptop className="h-5 w-5 mr-2" />
+                <span>LinkedIn</span>
               </a>
               <a
                 href="https://twitter.com/dested"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-indigo-400 transition"
+                className="text-gray-300 hover:text-indigo-400 transition flex items-center"
               >
-                <Zap className="h-5 w-5" />
+                <Zap className="h-5 w-5 mr-2" />
+                <span>Twitter</span>
               </a>
             </div>
             <div className="text-sm text-gray-500">
