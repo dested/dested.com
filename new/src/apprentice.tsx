@@ -34,6 +34,7 @@ export const ApprenticeJobPosting = () => {
 
   const [submitted, setSubmitted] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [formStep, setFormStep] = useState(0); // 0: initial, 1: submitted form, 2: clicked continue button
 
   // Close mobile menu when resizing to desktop
   useEffect(() => {
@@ -58,10 +59,31 @@ export const ApprenticeJobPosting = () => {
   }
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setSubmitted(true)
-    // Form submission logic would go here
-  }
+    e.preventDefault();
+    setFormStep(1);
+  };
+
+  const openGoogleForm = () => {
+    const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSemAMCVErG2icWBXkixTo4AoJdUJFVmCyZH3yrj58ib3GCzWg/viewform';
+    
+    const params = new URLSearchParams({
+      'entry.324565557': formData.name,
+      'entry.1981737297': formData.email,
+      'entry.915528819': formData.phone,
+      'entry.1791991058': formData.github,
+      'entry.64324642': formData.yearsExperience,
+      'entry.401171765': formData.whyCoding,
+      'entry.1735843011': formData.bestProject,
+      'entry.1209636748': formData.aiExperience,
+      'entry.736513296': formData.timezone,
+      'entry.720887943': formData.workStyle
+    });
+    
+    window.open(`${googleFormUrl}?usp=pp_url&${params.toString()}`, '_blank');
+    
+    // Update the step to indicate they've clicked the button
+    setFormStep(2);
+  };
 
   return (
     <div className="bg-black text-white min-h-screen">
@@ -143,7 +165,7 @@ export const ApprenticeJobPosting = () => {
         <div className="flex flex-col lg:flex-row items-center gap-12 mb-24">
           <div className="w-full lg:w-1/2">
             <div className="inline-block px-4 py-1.5 rounded-full bg-indigo-900/50 text-indigo-400 font-medium text-sm mb-6">
-              Hiring Now
+              Hiring Exactly One Person
             </div>
             <h1 className="text-5xl font-bold leading-tight mb-6">
               Become My Coding{' '}
@@ -212,14 +234,14 @@ export const ApprenticeJobPosting = () => {
           <div className="lg:w-1/2 relative mt-8 lg:mt-0">
             <div className="absolute -inset-1 bg-indigo-500 opacity-20 blur-xl rounded-lg"></div>
             <div className="relative bg-gray-900 p-5 sm:p-8 rounded-lg border border-gray-700">
-              <div className="flex flex-col sm:flex-row sm:justify-center sm:items-center mb-6 text-center">
+              <div className="flex flex-col sm:flex-row sm:justify-center sm:items-center mb-6 md:text-center lg:text-left">
                 <div className="text-2xl font-bold text-white mb-2 sm:mb-0 sm:mr-4">
                   Paid Apprenticeship
                 </div>
                 <div className="flex items-center bg-green-900/60 px-4 py-2 rounded-lg text-green-400 text-sm font-medium self-center">
                   <Zap className="h-4 w-4 mr-2" />
                   <span className="font-bold text-base">
-                    You Earn: $9,000/month
+                    Salary: $9,000/month
                   </span>
                 </div>
               </div>
@@ -744,24 +766,13 @@ export const ApprenticeJobPosting = () => {
         {/* Application Form */}
         <div id="apply" className="relative">
           <div className="absolute -inset-1 bg-indigo-500 opacity-10 blur-xl rounded-lg"></div>
-          <div className="relative bg-gray-900 p-8 md:p-10 rounded-lg border border-gray-700">
+          <div className="relative bg-gray-900 p-8 md:p-10 rounded-lg border border-gray-700 max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 flex items-center">
               <Sparkles className="h-6 w-6 mr-3 text-indigo-400" />
               Apply Now
             </h2>
 
-            {submitted ? (
-              <div className="bg-indigo-900/40 p-8 rounded-lg border border-indigo-800/50 text-center">
-                <Sparkles className="h-12 w-12 text-indigo-400 mx-auto mb-4" />
-                <h3 className="text-indigo-300 text-xl font-medium mb-2">
-                  Application Received!
-                </h3>
-                <p className="text-gray-300 max-w-md mx-auto">
-                  Thanks for applying. If your experience and passion align with
-                  what I'm looking for, I'll be in touch soon.
-                </p>
-              </div>
-            ) : (
+            {formStep === 0 ? (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div>
@@ -960,6 +971,46 @@ export const ApprenticeJobPosting = () => {
                   </button>
                 </div>
               </form>
+            ) : formStep === 1 ? (
+              <div className="bg-indigo-900/40 p-8 rounded-lg border border-indigo-800/50 text-center">
+                <Sparkles className="h-12 w-12 text-indigo-400 mx-auto mb-4" />
+                <h3 className="text-indigo-300 text-xl font-medium mb-3">
+                  Almost Done!
+                </h3>
+                <p className="text-gray-300 max-w-lg mx-auto mb-6">
+                  Your application information has been received! To complete your submission, 
+                  you'll need to confirm it in a Google Form that will open when you click the button below.
+                </p>
+                <div className="flex justify-center">
+                  <button 
+                    onClick={openGoogleForm}
+                    className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition flex items-center justify-center"
+                  >
+                    <Sparkles className="h-5 w-5 mr-2" />
+                    Continue to Final Step
+                  </button>
+                </div>
+                <p className="text-sm text-gray-400 mt-4">
+                  This opens a Google Form pre-filled with your information. You'll just need to review and submit.
+                </p>
+              </div>
+            ) : (
+              <div className="bg-indigo-900/40 p-8 rounded-lg border border-indigo-800/50 text-center">
+                <Sparkles className="h-12 w-12 text-indigo-400 mx-auto mb-4" />
+                <h3 className="text-indigo-300 text-xl font-medium mb-3">
+                  Application Complete!
+                </h3>
+                <p className="text-gray-300 max-w-lg mx-auto">
+                  Thank you for taking the time to apply. I carefully review every application personally, and if your 
+                  experience and passion align with what I'm looking for, I'll reach out to you directly within the next week.
+                </p>
+                <div className="mt-6 flex justify-center">
+                  <div className="inline-flex items-center text-sm text-indigo-300">
+                    <Star className="h-4 w-4 text-indigo-400 mr-2" />
+                    Looking forward to potentially working together!
+                  </div>
+                </div>
+              </div>
             )}
           </div>
         </div>

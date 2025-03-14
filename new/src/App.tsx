@@ -78,7 +78,7 @@ export function App() {
             <div className="flex justify-between">
               <div className="text-gray-400">Engineer</div>
               <div className="font-medium text-right text-gray-600">
-                17 years
+                20 years
               </div>
             </div>
             <div className="flex justify-between">
@@ -108,7 +108,7 @@ export function App() {
         <div className="p-7 pb-0 block-section">
           <h2 className="block-title">About me</h2>
           <p className="text-gray-600 mb-5">
-            With 17 years of professional engineering experience and nearly 10
+            With 20 years of professional engineering experience and nearly 10
             as CTO or Startup Founder, I have seen it all. I watched the web
             transform from jQuery to React, from long-polling to web sockets,
             PhoneGap to React Native, and from monolithic server rendered
