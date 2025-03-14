@@ -141,10 +141,10 @@ export const ApprenticeJobPosting = () => {
               <span className="text-indigo-400">Apprentice</span>
             </h1>
             <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-              After 17 years crushing code, running the two biggest JavaScript
-              meetups in Phoenix, and exiting multiple startups, I'm looking for
-              a protégé who's ready to level up and build shit that matters.
-              This is real work with real impact.
+              After 20 years of building products, running the two biggest
+              JavaScript meetups in Phoenix, and exiting multiple startups, I'm
+              looking for a protégé who's ready to level up and build shit that
+              matters. This is real work with real impact.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
@@ -162,41 +162,53 @@ export const ApprenticeJobPosting = () => {
               </a>
             </div>
           </div>
-          <div className="lg:w-1/2 relative">
+          <div className="lg:w-1/2 relative mt-8 lg:mt-0">
             <div className="absolute -inset-1 bg-indigo-500 opacity-20 blur-xl rounded-lg"></div>
-            <div className="relative bg-gray-900 p-8 rounded-lg border border-gray-700">
-              <div className="flex justify-between items-center mb-6">
-                <div className="text-2xl font-bold text-white">
-                  The Apprenticeship
+            <div className="relative bg-gray-900 p-5 sm:p-8 rounded-lg border border-gray-700">
+              <div className="flex flex-col sm:flex-row sm:justify-center sm:items-center mb-6 text-center">
+                <div className="text-2xl font-bold text-white mb-2 sm:mb-0 sm:mr-4">
+                  Paid Apprenticeship
                 </div>
-                <div className="px-3 py-1 bg-indigo-900/60 text-indigo-400 rounded-full text-sm font-medium">
-                  $9k/month
+                <div className="flex items-center bg-green-900/60 px-4 py-2 rounded-lg text-green-400 text-sm font-medium self-center">
+                  <Zap className="h-4 w-4 mr-2" />
+                  <span className="font-bold text-base">You Earn: $9,000/month</span>
                 </div>
               </div>
-              <div className="space-y-4 mb-6">
-                <div className="flex justify-between items-center">
-                  <div className="text-gray-400 flex items-center">
+              <div className="space-y-6 mb-6">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
+                  <div className="text-gray-400 flex items-center mb-1 sm:mb-0">
                     <Terminal className="h-4 w-4 mr-2" />
                     Duration
                   </div>
                   <div className="font-medium text-white">3 Months (1099)</div>
                 </div>
-                <div className="flex justify-between items-center">
-                  <div className="text-gray-400 flex items-center">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
+                  <div className="text-gray-400 flex items-center mb-1 sm:mb-0">
                     <Monitor className="h-4 w-4 mr-2" />
-                    Requirements
+                    Basic Requirements
                   </div>
-                  <div className="font-medium text-white">
-                    3+ years exp, MacBook, Chaotic Energy
+                  <div className="font-medium text-white flex flex-col">
+                    <div className="flex items-center">
+                      <span className="h-1.5 w-1.5 rounded-full bg-indigo-400 mr-2"></span>
+                      <span>3+ years experience</span>
+                    </div>
+                    <div className="flex items-center">
+                      <span className="h-1.5 w-1.5 rounded-full bg-indigo-400 mr-2"></span>
+                      <span>Your own MacBook</span>
+                    </div>
+                    <div className="flex items-center">
+                      <span className="h-1.5 w-1.5 rounded-full bg-indigo-400 mr-2"></span>
+                      <span>Thrive in chaos</span>
+                    </div>
                   </div>
                 </div>
-                <div className="flex justify-between items-center">
-                  <div className="text-gray-400 flex items-center">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
+                  <div className="text-gray-400 flex items-center mb-1 sm:mb-0">
                     <Bot className="h-4 w-4 mr-2" />
                     Tech Stack
                   </div>
                   <div className="font-medium text-white">
-                    React, TypeScript, AI Tools
+                   Backend, Frontend, React, Node, TypeScript, Postgres, MongoDB, AI Tools
                   </div>
                 </div>
               </div>
@@ -208,8 +220,8 @@ export const ApprenticeJobPosting = () => {
                       Write More Code Than Ever
                     </div>
                     <p className="text-gray-300">
-                      Ship features daily. Collaborate directly with me. Build
-                      your portfolio.
+                      You will work directly with me on real products. You will 
+                      
                     </p>
                   </div>
                 </div>
@@ -235,40 +247,82 @@ export const ApprenticeJobPosting = () => {
             <div className="space-y-10">
               <div>
                 <h3 className="text-xl font-medium mb-4 flex items-center text-indigo-400">
-                  <Terminal className="h-5 w-5 mr-2" />
+                  <Code className="h-5 w-5 mr-2" />
                   Code at Scale
                 </h3>
                 <p className="text-gray-300 mb-4">
-                  This isn't hyperbole. As my apprentice, you'll be cranking out
+           
+                This isn't hyperbole. As my apprentice, you'll be cranking out
                   features for actual products used by thousands. You'll ship
                   code daily and watch real users interact with your work within
                   days, not months. I take on too many projects because I can't
                   say no to exciting opportunities—now I need your help
-                  delivering them.
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <div className="bg-gray-900/60 p-5 rounded-lg border border-gray-800">
+                  delivering them.     </p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
+                  <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
                     <div className="flex items-center mb-2">
                       <Star className="h-4 w-4 text-amber-500 mr-2" />
                       <span className="text-white font-medium">
-                        React/TypeScript Development
+                        AWS Cloud Architecture
                       </span>
                     </div>
                     <p className="text-gray-400 text-sm">
-                      Build modern, responsive interfaces with the latest tools
-                      and frameworks
+                      Design and deploy scalable infrastructure using Lambda, S3, DynamoDB, and more
                     </p>
                   </div>
                   <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
                     <div className="flex items-center mb-2">
                       <Star className="h-4 w-4 text-amber-500 mr-2" />
                       <span className="text-white font-medium">
-                        System Architecture
+                        React Ecosystem
                       </span>
                     </div>
                     <p className="text-gray-400 text-sm">
-                      Design and implement scalable solutions for complex
-                      problems
+                      Build with Next.js, React Query, Zustand, and other modern React tools
+                    </p>
+                  </div>
+                  <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
+                    <div className="flex items-center mb-2">
+                      <Star className="h-4 w-4 text-amber-500 mr-2" />
+                      <span className="text-white font-medium">
+                        Node.js Backend
+                      </span>
+                    </div>
+                    <p className="text-gray-400 text-sm">
+                      Create high-performance APIs with Express, and serverless functions
+                    </p>
+                  </div>
+                  <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
+                    <div className="flex items-center mb-2">
+                      <Star className="h-4 w-4 text-amber-500 mr-2" />
+                      <span className="text-white font-medium">
+                        API Design
+                      </span>
+                    </div>
+                    <p className="text-gray-400 text-sm">
+                      Craft intuitive, efficient, and secure REST and TRPC APIs
+                    </p>
+                  </div>
+                  <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
+                    <div className="flex items-center mb-2">
+                      <Star className="h-4 w-4 text-amber-500 mr-2" />
+                      <span className="text-white font-medium">
+                        AI Integration
+                      </span>
+                    </div>
+                    <p className="text-gray-400 text-sm">
+                      Implement LLM-powered features using OpenAI, Anthropic, and other AI platforms
+                    </p>
+                  </div>
+                  <div className="bg-gray-900/60 p-4 rounded-lg border border-gray-800">
+                    <div className="flex items-center mb-2">
+                      <Star className="h-4 w-4 text-amber-500 mr-2" />
+                      <span className="text-white font-medium">
+                        Database Design
+                      </span>
+                    </div>
+                    <p className="text-gray-400 text-sm">
+                      Model data efficiently with PostgreSQL, MongoDB, and other modern databases
                     </p>
                   </div>
                 </div>
@@ -369,7 +423,7 @@ export const ApprenticeJobPosting = () => {
                       <Zap className="h-4 w-4" />
                     </div>
                     <span className="text-gray-300 font-medium">
-                      Must be comfortable with chaos
+                      Must be passionate about coding and AI
                     </span>
                   </div>
                 </div>
@@ -381,9 +435,7 @@ export const ApprenticeJobPosting = () => {
                         This apprenticeship is not for the faint of heart.
                       </p>
                       <p className="text-gray-300">
-                        You will be pushed to your limits, but you'll come out
-                        the other side a far better engineer with cutting-edge
-                        skills. 
+                        You will write code daily and ship features for real products. You will have major responsibility and impact.
                       </p>
                     </div>
                   </div>
@@ -399,20 +451,23 @@ export const ApprenticeJobPosting = () => {
                   I've built and exited multiple startups, connected with
                   thousands of developers through running Phoenix's largest
                   JavaScript meetups, and reached a world-class level of
-                  software engineering that most only dream of. I'm offering you
-                  access to my network, my brain, and my projects—plus gainful
-                  employment and a connection/referral for life.
+                  software engineering that most only dream of. 
                 </p>
                 <p className="text-gray-300 mb-4">
+                I have reached the point in my career where I can't do it all. I have a number of projects that I'm working on and I need help.
+                </p>
+                <p className="text-gray-300 mb-4">
+
                   This is the era of AI-powered development, and engineers are 
-                  able to move faster than ever before. I'm looking for will embrace
-                  this new era and learn to use AI to its fullest extent.
+                  able to move faster than ever before. I have embraced this new reality
+                  and I'm looking for someone who can help me build products that
+                  people actually want.
                 </p>
                 <p className="text-gray-300">
-                  Why work with me? Because I'll push you beyond what you
-                  thought possible while connecting you with opportunities most
-                  developers never see. My network runs deep, and so does my
-                  technical expertise.
+                  Why work with me? <br/><br/>
+                  I'm offering you
+                  access to my network, my brain, and my projects—plus gainful
+                  employment and a connection/referral for life.
                 </p>
               </div>
             </div>
@@ -432,7 +487,7 @@ export const ApprenticeJobPosting = () => {
                 Is this a real job?
               </h3>
               <p className="text-gray-300">
-                Hell yes. This is full-time, paid work ($9k/month, 1099)
+                Yes. This is full-time, paid work ($9k/month, 1099)
                 building actual products for real customers. You'll be writing
                 code that ships, not doing busywork or theoretical exercises.
               </p>
@@ -446,6 +501,15 @@ export const ApprenticeJobPosting = () => {
                 At least 40 hours weekly. Sometimes more when we're in the zone
                 or hitting deadlines. We don't count hours—we ship products. But
                 I respect work-life balance and don't expect you to burn out.
+              </p>
+            </div>    
+                    <div className="bg-gray-900 p-6 rounded-lg border border-gray-800">
+              <h3 className="text-xl font-medium mb-3 text-white">
+                How many people are you hiring?
+              </h3>
+              <p className="text-gray-300">
+                I'm hiring one person. This is a unique opportunity to be mentored by me 
+                and build products that are used by thousands of people.
               </p>
             </div>
 
@@ -625,7 +689,7 @@ export const ApprenticeJobPosting = () => {
                   <textarea
                     id="whyCoding"
                     name="whyCoding"
-                    rows="3"
+                    rows={3}
                     required
                     value={formData.whyCoding}
                     onChange={handleChange}
@@ -643,7 +707,7 @@ export const ApprenticeJobPosting = () => {
                   <textarea
                     id="bestProject"
                     name="bestProject"
-                    rows="3"
+                    rows={3}
                     required
                     value={formData.bestProject}
                     onChange={handleChange}
@@ -662,7 +726,7 @@ export const ApprenticeJobPosting = () => {
                   <textarea
                     id="aiExperience"
                     name="aiExperience"
-                    rows="3"
+                    rows={3}
                     required
                     value={formData.aiExperience}
                     onChange={handleChange}
@@ -671,47 +735,6 @@ export const ApprenticeJobPosting = () => {
                   ></textarea>
                 </div>
 
-                <div>
-                  <label
-                    htmlFor="vibeQuestion"
-                    className="block text-sm font-medium text-gray-300 mb-1"
-                  >
-                    What does "vibe coding" mean to you? 
-                  </label>
-                  <textarea
-                    id="vibeQuestion"
-                    name="vibeQuestion"
-                    rows="3"
-                    required
-                    value={formData.vibeQuestion}
-                    onChange={handleChange}
-                    className="w-full bg-black/40 rounded-lg border border-gray-700 px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-                  ></textarea>
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="chaosLevel"
-                    className="block text-sm font-medium text-gray-300 mb-1"
-                  >
-                    On a scale of 1-10, how comfortable are you with chaos?
-                  </label>
-                  <input
-                    type="range"
-                    id="chaosLevel"
-                    name="chaosLevel"
-                    min="1"
-                    max="10"
-                    value={formData.chaosLevel}
-                    onChange={handleChange}
-                    className="w-full accent-indigo-500"
-                  />
-                  <div className="flex justify-between text-xs text-gray-500">
-                    <span>1 (I need structure)</span>
-                    <span>5 (Balanced)</span>
-                    <span>10 (I thrive in chaos)</span>
-                  </div>
-                </div>
 
                 <div className="pt-6">
                   <button
