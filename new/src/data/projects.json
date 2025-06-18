@@ -24,24 +24,26 @@
     ]
   },
   {
-    "url": "https://quickga.me",
-    "image": "assets/project-images/quickgame.png",
+    "url": "https://gamecreatorsclub.com",
+    "image": "assets/project-images/gamecreatorsclub.png", 
     "startDate": "January 2021",
-    "endDate": "March 2023",
-    "endNote": "Hiatus",
-    "name": "QuickGa.me",
+    "endDate": "June 2025",
+    "endNote": "Current",
+    "name": "Game Creators Club",
     "title": "Founder",
-    "description": "A web based, 3d, multiplayer game engine built to teach kids engineering skills",
+    "description": "The Ultimate STEM playground for young gamers to learn, create, and share their own video games. A virtual after-school program that teaches kids how to design, code, and publish their own games.",
     "notes": [
-      "Used by thousands of people to make their own 3d games from right in their browser or tablet",
-      "Multiplayer is handled entirely by the internal engine, works irrespective of latency or device power",
-      "Built for people without game development experience, or even programming experience",
-      "Full coding environment, as well as drag and drop ability to configure logic",
-      "Full voxel editor for models and map layout"
+      "Over 3,000 new young coders have learned game development",
+      "More than 5,000 games created and published by students",
+      "Cross-platform support for Android tablets, iPads, and web browsers",
+      "Comprehensive learning platform with tutorials, courses, and challenges",
+      "Safe, moderated community for kids ages 8-18 to learn and share",
+      "Full drag-and-drop and coding environments for all skill levels",
+      "Over 2,000 hours of classes taught to young developers"
     ],
     "tech": [
       "react",
-      "solidjs",
+      "solidjs", 
       "typescript",
       "mongodb",
       "aws",
