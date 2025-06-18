@@ -4,550 +4,485 @@ import blogData from './data/blog.json'
 import toyData from './data/toys.json'
 
 export function App() {
-  const allSkills = [...new Set(flattenArray(projectData.map((e) => e.tech)))]
+  const [hoveredProject, setHoveredProject] = React.useState<string | null>(null)
+  const [activeSection, setActiveSection] = React.useState('intro')
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['intro', 'work', 'community', 'experiments', 'writing']
+      const scrollPosition = window.scrollY + 200
+      
+      for (const section of sections) {
+        const element = document.getElementById(section)
+        if (element && scrollPosition >= element.offsetTop) {
+          setActiveSection(section)
+        }
+      }
+    }
+    
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <header className="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white">
-        <div className="container mx-auto px-6 py-20">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="mb-8">
-              <img
-                src="/assets/sal-circle.jpg"
-                alt="Salvatore Aiello"
-                className="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-white/20 shadow-2xl"
-              />
+    <div className="min-h-screen bg-stone-50 text-stone-900">
+      {/* Fixed Side Navigation */}
+      <nav className="fixed left-8 top-1/2 -translate-y-1/2 z-50 hidden lg:block">
+        <div className="flex flex-col space-y-3">
+          {[
+            { id: 'intro', label: '00' },
+            { id: 'work', label: '01' },
+            { id: 'community', label: '02' },
+            { id: 'experiments', label: '03' },
+            { id: 'writing', label: '04' }
+          ].map((item) => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              className={`w-12 h-12 flex items-center justify-center rounded-full border-2 transition-all ${
+                activeSection === item.id
+                  ? 'border-stone-900 bg-stone-900 text-white'
+                  : 'border-stone-300 hover:border-stone-500'
+              }`}
+            >
+              <span className="text-xs font-mono">{item.label}</span>
+            </a>
+          ))}
+        </div>
+      </nav>
+
+      {/* Hero Section - Minimalist */}
+      <header id="intro" className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
+        {/* Subtle background pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(0,0,0,.05) 35px, rgba(0,0,0,.05) 70px)`
+          }}></div>
+        </div>
+        
+        <div className="max-w-6xl mx-auto w-full relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <p className="font-mono text-sm text-stone-500 mb-4">Phoenix, Arizona</p>
+              <h1 className="text-6xl md:text-7xl font-light mb-6">
+                Salvatore<br />
+                <span className="font-semibold">Aiello</span>
+              </h1>
+              <div className="w-24 h-0.5 bg-stone-900 mb-8"></div>
+              <p className="text-xl text-stone-700 mb-2">Founder & Fractional CTO</p>
+              <p className="text-stone-600 mb-8 max-w-md">
+                Twenty years building products. Ten years leading teams. 
+                Currently helping startups find their technical path.
+              </p>
+              
+              <div className="flex flex-wrap gap-4">
+                <a
+                  href="./assets/Salvatore Aiello Resume 2023.pdf"
+                  download
+                  className="inline-flex items-center px-6 py-3 bg-stone-900 text-white hover:bg-stone-800 transition-colors"
+                >
+                  <span className="mr-2">↓</span> Resume
+                </a>
+                <a
+                  href="mailto:sal@dested.com"
+                  className="inline-flex items-center px-6 py-3 border border-stone-900 hover:bg-stone-900 hover:text-white transition-all"
+                >
+                  Let's Talk
+                </a>
+              </div>
+              
+              {/* Social links */}
+              <div className="flex gap-6 mt-12">
+                <a href="https://github.com/dested" className="text-stone-400 hover:text-stone-900 transition-colors">
+                  <span className="sr-only">GitHub</span>
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                  </svg>
+                </a>
+                <a href="https://linkedin.com/in/dested" className="text-stone-400 hover:text-stone-900 transition-colors">
+                  <span className="sr-only">LinkedIn</span>
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
+                </a>
+                <a href="https://twitter.com/dested" className="text-stone-400 hover:text-stone-900 transition-colors">
+                  <span className="sr-only">Twitter</span>
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                  </svg>
+                </a>
+              </div>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-              Salvatore Aiello
-            </h1>
-            <p className="text-xl md:text-2xl text-blue-100 mb-8 font-light">
-              Founder & Fractional CTO
-            </p>
-            <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed mb-10">
-              With 20 years of professional engineering experience and nearly 10 as CTO or Startup Founder, 
-              I transform ideas into scalable products used by hundreds of thousands of users.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a
-                href="./assets/Salvatore Aiello Resume 2023.pdf"
-                download
-                className="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors shadow-lg hover:shadow-xl"
-              >
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-                Download Resume
-              </a>
-              <a
-                href="mailto:sal@dested.com"
-                className="inline-flex items-center px-8 py-4 border-2 border-white/30 hover:border-white/50 text-white font-semibold rounded-lg transition-colors hover:bg-white/10"
-              >
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-                Contact Me
-              </a>
+            
+            <div className="relative">
+              <div className="aspect-square max-w-md mx-auto">
+                <img
+                  src="/assets/sal.jpg"
+                  alt="Salvatore Aiello"
+                  className="w-full h-full object-cover grayscale"
+                />
+                <div className="absolute -bottom-4 -right-4 bg-stone-900 text-white p-6">
+                  <p className="font-mono text-sm">20+ years</p>
+                  <p className="text-2xl font-light">Building products</p>
+                </div>
+              </div>
             </div>
+          </div>
+        </div>
+        
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+          <div className="w-6 h-10 border-2 border-stone-400 rounded-full p-1">
+            <div className="w-1 h-2 bg-stone-400 rounded-full mx-auto animate-bounce"></div>
           </div>
         </div>
       </header>
 
-      {/* Quick Info Bar */}
-      <section className="bg-white border-b border-gray-200">
-        <div className="container mx-auto px-6 py-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-2xl font-bold text-gray-900">20+</div>
-              <div className="text-gray-600">Years Engineering</div>
+      {/* About Section - Magazine Style */}
+      <section className="py-24 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-12 gap-8">
+          <div className="lg:col-span-8">
+              <p className="text-3xl md:text-4xl font-light leading-relaxed mb-12">
+                I've spent two decades watching the web evolve—from jQuery spaghetti to React elegance, 
+                from FTP deployments to CI/CD pipelines, from "it works on my machine" to containerized everything.
+              </p>
+              
+              <div className="space-y-8 text-lg text-stone-700">
+                <p>
+                  I've been the solo founder hustling at 3am, the tech lead managing big and small teams, 
+                  and the CTO making company changing decisions. I've shipped products that flopped spectacularly 
+                  and others that scaled to hundreds of thousands of users.
+                </p>
+                <p>
+                  These days, I work as a fractional CTO—helping startups navigate the chaos of early-stage 
+                  product development. I bring the scars of my own failed ventures and the playbooks from the successful ones.
+                </p>
+              </div>
             </div>
-            <div>
-              <div className="text-2xl font-bold text-gray-900">8+</div>
-              <div className="text-gray-600">Years as Founder</div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-gray-900">100K+</div>
-              <div className="text-gray-600">Users Served</div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-gray-900">Phoenix</div>
-              <div className="text-gray-600">Arizona, USA</div>
+            <div className="lg:col-span-4">
+              <div className="sticky top-24 space-y-8">
+                <div className="border-l-2 border-stone-900 pl-6">
+                  <h3 className="font-mono text-sm text-stone-500 mb-2">Quick Facts</h3>
+                  <ul className="space-y-2 text-sm">
+                    <li>• Founded 5 startups</li>
+                    <li>• Shipped 50+ products</li>
+                    <li>• Led teams from 2 to 50+</li>
+                    <li>• React Conf 2019 speaker</li>
+                    <li>• Phoenix React organizer</li>
+                  </ul>
+                </div>
+                
+                <div className="border-l-2 border-stone-900 pl-6">
+                  <h3 className="font-mono text-sm text-stone-500 mb-2">GitHub Activity</h3>
+                  <div className="bg-white p-3 rounded">
+                    <img 
+                      src="https://ghchart.rshah.org/171717/dested" 
+                      alt="GitHub contributions" 
+                      className="w-full opacity-75"
+                    />
+                  </div>
+                  <a href="https://github.com/dested" className="text-sm text-stone-600 hover:text-stone-900 mt-2 inline-block">
+                    View full profile →
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <main className="container mx-auto px-6 py-16 max-w-6xl">
-        {/* About Section */}
-        <section className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">About Me</h2>
-            <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
+      {/* Work Section - Editorial Layout */}
+      <section id="work" className="py-24 px-6 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-16">
+            <p className="font-mono text-sm text-stone-500 mb-2">01 — Professional Work</p>
+            <h2 className="text-5xl md:text-6xl font-light">
+              Companies I've <span className="font-semibold italic">Built</span>
+            </h2>
           </div>
           
-          {/* Main Content Grid */}
-          <div className="grid lg:grid-cols-3 gap-8 mb-12">
-            {/* Story Column */}
-            <div className="lg:col-span-2 space-y-8">
-              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-8 border border-blue-100">
-                <div className="flex items-start space-x-4 mb-6">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center">
-                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                      </svg>
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-3">Technology Evolution Witness</h3>
-                    <p className="text-gray-700 leading-relaxed">
-                      I have witnessed the web transform from jQuery to React, from long-polling to WebSockets, 
-                      PhoneGap to React Native, and from monolithic server-rendered websites to lean SPAs and back again.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-8 border border-green-100">
-                <div className="flex items-start space-x-4 mb-6">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center">
-                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                      </svg>
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-3">Scale & Leadership</h3>
-                    <p className="text-gray-700 leading-relaxed">
-                      I have worked with or managed teams both small and large, built back-office tools for operations, 
-                      deployed client-facing applications used by hundreds of thousands, and personally launched and 
-                      exited numerous startups.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-8 border border-purple-100">
-                <div className="flex items-start space-x-4 mb-6">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center">
-                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                      </svg>
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-3">Hands-on "Wartime" CTO</h3>
-                    <p className="text-gray-700 leading-relaxed">
-                      I rapidly prototype business needs and bring those prototypes to production-ready, maintainable 
-                      applications while ensuring we stay firmly on the path to product-market fit and beyond.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Sidebar Column */}
-            <div className="space-y-8">
-              {/* Connect Card */}
-              <div className="bg-white p-6 rounded-xl shadow-lg">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Connect With Me</h3>
-                <div className="space-y-4">
-                  <a
-                    href="mailto:sal@dested.com"
-                    className="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
-                  >
-                    <svg className="w-5 h-5 text-blue-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                    sal@dested.com
-                  </a>
-                  <div className="flex space-x-3">
-                    <a
-                      href="https://github.com/dested"
-                      className="flex items-center justify-center w-12 h-12 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors"
-                    >
-                      <i className="bx bxl-github text-xl"></i>
-                    </a>
-                    <a
-                      href="https://linkedin.com/in/dested"
-                      className="flex items-center justify-center w-12 h-12 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-                    >
-                      <i className="bx bxl-linkedin text-xl"></i>
-                    </a>
-                    <a
-                      href="https://twitter.com/dested"
-                      className="flex items-center justify-center w-12 h-12 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition-colors"
-                    >
-                      <i className="bx bxl-twitter text-xl"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Quick Stats */}
-              <div className="bg-gradient-to-br from-slate-50 to-gray-100 p-6 rounded-xl border border-gray-200">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Stats</h3>
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-600">Languages</span>
-                    <span className="font-semibold text-gray-900">15+</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-600">Projects Shipped</span>
-                    <span className="font-semibold text-gray-900">50+</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-600">Startups Founded</span>
-                    <span className="font-semibold text-gray-900">5</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-600">Teams Led</span>
-                    <span className="font-semibold text-gray-900">10+</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          {/* GitHub Activity Section */}
-          <div className="bg-white rounded-xl shadow-lg p-8">
-            <div className="flex items-center justify-between mb-6">
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gray-900 rounded-lg flex items-center justify-center">
-                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900">GitHub Activity</h3>
-                  <p className="text-gray-600 text-sm">Recent contributions and coding activity</p>
-                </div>
-              </div>
-              <a
-                href="https://github.com/dested"
-                className="flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
-              >
-                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-                View Profile
-              </a>
-            </div>
-            
-            {/* GitHub Contribution Graph */}
-            <div className="bg-gray-50 rounded-lg p-4 overflow-x-auto">
-              <img 
-                src="https://ghchart.rshah.org/dested" 
-                alt="GitHub Contribution Chart" 
-                className="w-full max-w-4xl mx-auto"
-                style={{ minWidth: '700px' }}
-              />
-            </div>
-            
-            <div className="mt-4 text-center">
-              <p className="text-sm text-gray-600">
-                Active contributor with consistent coding activity across personal and professional projects
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Professional Experience Section */}
-        <section className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Professional Experience</h2>
-            <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
-          </div>
-          <div className="space-y-8">
+          <div className="space-y-24">
             {projectData.map((project, index) => (
-              <div key={project.url} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                <div className="md:flex">
-                  <div className="md:w-1/3">
+              <article 
+                key={project.url} 
+                className={`grid lg:grid-cols-12 gap-8 items-start ${
+                  index % 2 === 1 ? 'lg:direction-rtl' : ''
+                }`}
+                onMouseEnter={() => setHoveredProject(project.name)}
+                onMouseLeave={() => setHoveredProject(null)}
+              >
+                <div className={`lg:col-span-5`}>
+                  <div className="relative overflow-hidden bg-stone-100">
                     <img
                       src={project.image}
                       alt={project.name}
-                      className="w-full h-64 md:h-full object-cover"
+                      className={`w-full h-auto transition-transform duration-700 ${
+                        hoveredProject === project.name ? 'scale-105' : ''
+                      }`}
                     />
-                  </div>
-                  <div className="md:w-2/3 p-8">
-                    <div className="flex items-start justify-between mb-4">
-                      <div>
-                        <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                          <a href={project.url} className="hover:text-blue-600 transition-colors">
-                            {project.name}
-                          </a>
-                        </h3>
-                        <div className="flex items-center text-gray-600 mb-2">
-                          <span className="font-semibold">{project.title}</span>
-                          <span className="mx-2">•</span>
-                          <span>{project.startDate} – {project.endDate}</span>
-                        </div>
+                    {project.endNote && (
+                      <div className="absolute top-4 right-4 bg-white px-3 py-1 text-sm font-mono">
+                        {project.endNote}
                       </div>
-                      {project.endNote && (
-                        <span className="inline-flex px-3 py-1 text-sm font-medium text-blue-600 bg-blue-100 rounded-full">
-                          {project.endNote}
-                        </span>
-                      )}
-                    </div>
-                    <p className="text-gray-700 text-lg mb-4 leading-relaxed">
-                      {project.description}
+                    )}
+                  </div>
+                </div>
+                
+                <div className={`lg:col-span-7 `}>
+                  <div className="mb-4">
+                    <p className="font-mono text-sm text-stone-500">
+                      {project.startDate} — {project.endDate}
                     </p>
-                    <ul className="space-y-2 mb-6">
-                      {project.notes.map((note, noteIndex) => (
-                        <li key={noteIndex} className="flex items-start">
-                          <svg className="w-5 h-5 text-blue-600 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg>
-                          <span className="text-gray-700">{note}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tech.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-3 py-1 text-sm font-medium text-gray-700 bg-gray-100 rounded-full"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
+                    <h3 className="text-3xl md:text-4xl font-light mt-2">
+                      {project.name}
+                    </h3>
+                    <p className="text-xl text-stone-600 mt-1">{project.title}</p>
                   </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Community & Speaking Section */}
-        <section className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Community & Speaking</h2>
-            <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-8 border border-blue-100">
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">Phoenix React Meetup Organizer</h3>
-                  <p className="text-gray-700 mb-4 leading-relaxed">
-                    Currently leading the Phoenix React meetup community with nearly 3,000 members. 
-                    Organizing monthly events, workshops, and networking opportunities for React developers.
+                  
+                  <p className="text-lg text-stone-700 mb-6 leading-relaxed">
+                    {project.description}
                   </p>
-                  <div className="flex items-center text-sm text-gray-600">
-                    <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    </svg>
-                    Phoenix, AZ • Current
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-8 border border-purple-100">
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-                    </svg>
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">React Conf 2019 Lightning Talk</h3>
-                  <p className="text-gray-700 mb-4 leading-relaxed">
-                    "Automagic TypeScript Codegen for GraphQL" - Presented advanced techniques for automatic 
-                    TypeScript code generation from GraphQL schemas.
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center text-sm text-gray-600">
-                      <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                      October 2019
-                    </div>
-                    <a 
-                      href="https://www.youtube.com/watch?v=UpFEtKkHxn4" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center px-4 py-2 bg-red-500 text-white text-sm font-medium rounded-lg hover:bg-red-600 transition-colors"
-                    >
-                      <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                      </svg>
-                      Watch Talk
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Skills Section */}
-        {/* <section className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Technical Skills</h2>
-            <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
-          </div>
-          <div className="bg-white rounded-xl shadow-lg p-8">
-            <div className="flex flex-wrap gap-3 justify-center">
-              {allSkills.map((skill) => (
-                <span
-                  key={skill}
-                  className="px-4 py-2 text-sm font-medium text-blue-700 bg-blue-50 border border-blue-200 rounded-full hover:bg-blue-100 transition-colors"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-        </section> */}
-
-        {/* Side Projects Section */}
-        <section className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Side Projects & Experiments</h2>
-            <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            {toyData.map((project) => (
-              <div key={project.title} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                <div className="aspect-video overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{project.title}</h3>
-                  <p 
-                    className="text-gray-600 mb-4 leading-relaxed"
-                    dangerouslySetInnerHTML={{ __html: project.description }}
-                  />
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.keywords.slice(0, 4).map((keyword) => (
+                  
+                  <ul className={`space-y-3 mb-8 ${index % 2 === 1 ? 'text-right' : ''}`}>
+                    {project.notes.map((note, noteIndex) => (
+                      <li key={noteIndex} className={`flex items-start ${index % 2 === 1 ? 'flex-row-reverse' : ''}`}>
+                        <span className={`text-stone-400 ${index % 2 === 1 ? 'ml-3' : 'mr-3'}`}>—</span>
+                        <span className="text-stone-600">{note}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  
+                  <div className={`flex flex-wrap gap-2 ${index % 2 === 1 ? 'justify-end' : ''}`}>
+                    {project.tech.map((tech) => (
                       <span
-                        key={keyword}
-                        className="px-2 py-1 text-xs font-medium text-gray-600 bg-gray-100 rounded"
+                        key={tech}
+                        className="px-3 py-1 text-xs font-mono border border-stone-300 text-stone-600"
                       >
-                        {keyword}
+                        {tech}
                       </span>
                     ))}
                   </div>
-                  <div className="flex space-x-3">
+                  
+                  {project.url && (
+                    <a 
+                      href={project.url}
+                      className={`inline-flex items-center mt-6 text-stone-900 hover:underline ${
+                        index % 2 === 1 ? 'flex-row-reverse' : ''
+                      }`}
+                    >
+                      <span className={index % 2 === 1 ? 'ml-2' : 'mr-2'}>Visit site</span>
+                      <span>→</span>
+                    </a>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Community Section - Bold Typography */}
+      <section id="community" className="py-24 px-6 bg-stone-900 text-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-16">
+            <p className="font-mono text-sm text-stone-400 mb-2">02 — Community</p>
+            <h2 className="text-5xl md:text-6xl font-light">
+              Giving <span className="font-semibold italic">Back</span>
+            </h2>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-16">
+            <div>
+              <div className="mb-8">
+                <h3 className="text-3xl font-light mb-4">Phoenix React Meetup</h3>
+                <p className="text-stone-300 text-lg leading-relaxed mb-6">
+                  I organize Phoenix's largest React community with nearly 3,000 members. 
+                  We meet monthly to share knowledge, network, and push each other to build better products.
+                </p>
+                <div className="flex items-center space-x-8 text-stone-400">
+                  <div>
+                    <p className="text-3xl font-light text-white">3,000</p>
+                    <p className="text-sm">Members</p>
+                  </div>
+                  <div>
+                    <p className="text-3xl font-light text-white">2017</p>
+                    <p className="text-sm">Since</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <div className="mb-8">
+                <h3 className="text-3xl font-light mb-4">Conference Speaking</h3>
+                <div className="bg-stone-800 p-8">
+                  <p className="font-mono text-sm text-stone-400 mb-2">React Conf 2019</p>
+                  <h4 className="text-2xl font-light mb-4">
+                    "Automagic TypeScript Codegen for GraphQL"
+                  </h4>
+                  <p className="text-stone-300 mb-6">
+                    Lightning talk on automatic code generation techniques that eliminate 
+                    boilerplate and improve developer experience.
+                  </p>
+                  <a 
+                    href="https://www.youtube.com/watch?v=UpFEtKkHxn4" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-white hover:text-stone-300"
+                  >
+                    <span className="mr-2">Watch talk</span>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Side Projects - Editorial Cards */}
+      <section id="experiments" className="py-24 px-6 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-16">
+            <p className="font-mono text-sm text-stone-500 mb-2">03 — Experiments</p>
+            <h2 className="text-5xl md:text-6xl font-light">
+              Weekend <span className="font-semibold italic">Hacks</span>
+            </h2>
+            <p className="text-xl text-stone-600 mt-4 max-w-2xl">
+              Side projects where I explore new tech, scratch creative itches, 
+              and build things just for the hell of it.
+            </p>
+          </div>
+          
+          <div className="space-y-16">
+            {toyData.map((project, index) => (
+              <article 
+                key={project.title} 
+                className={`grid lg:grid-cols-12 gap-8 items-center ${
+                  index % 2 === 1 ? 'lg:direction-rtl' : ''
+                }`}
+              >
+                <div className={`lg:col-span-4 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+                  <div className="relative overflow-hidden bg-stone-100 aspect-[4/3]">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                </div>
+                
+                <div className={`lg:col-span-8 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+                  <div className="mb-4">
+                    <h3 className="text-2xl md:text-3xl font-light mb-2">
+                      {project.title}
+                    </h3>
+                  </div>
+                  
+                  <div 
+                    className="text-lg text-stone-700 mb-6 leading-relaxed"
+                    dangerouslySetInnerHTML={{ __html: project.description }}
+                  />
+                  
+                  <div className={`flex flex-wrap gap-4 ${index % 2 === 0 ? 'lg:justify-end' : ''}`}>
                     {project.url && (
                       <a
                         href={project.url}
-                        className="flex items-center text-sm font-medium text-blue-600 hover:text-blue-700"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-6 py-3 border border-stone-900 hover:bg-stone-900 hover:text-white transition-all"
                       >
-                        <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <span className="mr-2">Live Demo</span>
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                         </svg>
-                        Visit
                       </a>
                     )}
                     {project.github && (
                       <a
                         href={project.github}
-                        className="flex items-center text-sm font-medium text-gray-600 hover:text-gray-700"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-6 py-3 bg-stone-900 text-white hover:bg-stone-800 transition-colors"
                       >
-                        <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                        <span className="mr-2">Source Code</span>
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                         </svg>
-                        Code
                       </a>
                     )}
                   </div>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Blog Section */}
-        {blogData.length > 0 && (
-          <section className="mb-20">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Latest Writing</h2>
-              <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
+      {/* Blog Section - Minimal Cards */}
+      {blogData.length > 0 && (
+        <section id="writing" className="py-24 px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="mb-16">
+              <p className="font-mono text-sm text-stone-500 mb-2">04 — Writing</p>
+              <h2 className="text-5xl md:text-6xl font-light">
+                Thoughts & <span className="font-semibold italic">Musings</span>
+              </h2>
             </div>
-            <div className="grid md:grid-cols-2 gap-8">
+            
+            <div className="grid lg:grid-cols-2 gap-8">
               {blogData.map((post) => (
                 <a
                   key={post.title}
                   href={post.url}
-                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow group"
+                  className="group block"
                 >
-                  <div className="aspect-video overflow-hidden">
+                  <div className="aspect-video overflow-hidden bg-stone-100 mb-6">
                     <img
                       src={post.image}
                       alt={post.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                  <div>
+                    <p className="font-mono text-sm text-stone-500 mb-2">{post.date}</p>
+                    <h3 className="text-2xl font-light mb-3 group-hover:underline">
                       {post.title}
                     </h3>
-                    <p className="text-gray-600 mb-4 leading-relaxed">
+                    <p className="text-stone-600 leading-relaxed">
                       {post.summary}
                     </p>
-                    <div className="text-sm text-gray-500">
-                      {post.date}
-                    </div>
                   </div>
                 </a>
               ))}
             </div>
-          </section>
-        )}
-      </main>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-6 text-center">
-          <div className="mb-8">
-            <h3 className="text-2xl font-bold mb-4">Let's Work Together</h3>
-            <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-              Ready to transform your idea into a scalable product? I'm available for fractional CTO roles, 
-              technical consulting, and strategic advisory positions.
-            </p>
-            <a
-              href="mailto:sal@dested.com"
-              className="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors"
-            >
-              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-              Get In Touch
-            </a>
           </div>
-          <div className="border-t border-gray-800 pt-8">
-            <div className="flex justify-center space-x-6 mb-4">
-              <a href="https://github.com/dested" className="text-gray-400 hover:text-white transition-colors">
-                <i className="bx bxl-github text-2xl"></i>
-              </a>
-              <a href="https://linkedin.com/in/dested" className="text-gray-400 hover:text-white transition-colors">
-                <i className="bx bxl-linkedin text-2xl"></i>
-              </a>
-              <a href="https://twitter.com/dested" className="text-gray-400 hover:text-white transition-colors">
-                <i className="bx bxl-twitter text-2xl"></i>
-              </a>
-            </div>
-            <p className="text-gray-400">
-              © 2024 Salvatore Aiello. Built with React & TypeScript.
+        </section>
+      )}
+
+      {/* Contact Section - Bold CTA */}
+      <footer className="py-24 px-6 bg-stone-900 text-white">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-5xl md:text-7xl font-light mb-8">
+            Let's build something <span className="font-semibold italic">together</span>
+          </h2>
+          <p className="text-xl text-stone-300 mb-12 max-w-2xl mx-auto">
+            I'm available for fractional CTO roles, technical consulting, 
+            and the occasional interesting project.
+          </p>
+          <a
+            href="mailto:sal@dested.com"
+            className="inline-flex items-center text-3xl md:text-4xl hover:underline"
+          >
+            sal@dested.com
+          </a>
+          
+          <div className="mt-16 pt-16 border-t border-stone-800">
+            <p className="text-stone-400 text-sm">
+              © 2025 Salvatore Aiello. Built with React, TypeScript, and too much coffee.
             </p>
           </div>
         </div>
